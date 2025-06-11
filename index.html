@@ -25,34 +25,41 @@
     .instrument-card {
       transition: transform 0.3s ease, box-shadow 0.3s ease;
       background: linear-gradient(145deg, #FFFFFF, #F8FAFC);
-      border-radius: 12px;
+      border-radius: 16px;
       overflow: hidden;
       width: 100%;
-      max-width: 600px;
+      max-width: 450px;
       margin: 0 auto;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+      border: 1px solid #E5E7EB;
     }
     .dark .instrument-card {
       background: linear-gradient(145deg, #374151, #4B5563);
+      border: 1px solid #4B5563;
     }
     .instrument-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      transform: translateY(-8px);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.25);
     }
     .instrument-card h2 {
       color: #A33F1F;
+      font-size: 1.25rem;
+      font-weight: 700;
     }
     .dark .instrument-card h2 {
-      color: #F9FAFB;
+      color: #FBBF24;
     }
     .instrument-card p {
       color: #4B5EAA;
+      font-size: 0.85rem;
+      line-height: 1.5;
     }
     .dark .instrument-card p {
-      color: #F9FAFB;
+      color: #D1D5DB;
     }
     .model-container {
       width: 100%;
-      height: 320px;
+      height: 200px;
       position: relative;
       border: 1px solid rgba(0, 0, 0, 0.05);
       border-radius: 8px;
@@ -65,10 +72,13 @@
       background: linear-gradient(to right, #2E7D32, #4CAF50);
       color: #FFFFFF;
       transition: background 0.3s ease, transform 0.2s ease;
+      border-radius: 9999px;
+      padding: 0.5rem 1.2rem;
+      font-weight: 500;
+      font-size: 0.85rem;
     }
     .dark .play-btn, .dark .stop-btn, .dark .play-narration-btn, .dark .stop-narration-btn {
       background: linear-gradient(to right, #EF6C00, #FF8C00);
-      color: #FFFFFF;
     }
     .play-btn:hover, .stop-btn:hover, .play-narration-btn:hover, .stop-narration-btn:hover {
       background: linear-gradient(to right, #EF6C00, #FF8C00);
@@ -77,14 +87,13 @@
     header {
       position: sticky;
       top: 0;
-      z-index: 10;
-      transition: opacity 1s ease-in-out;
-      background: #A33F1F;
+      z-index: 50;
+      background: linear-gradient(to bottom, #A33F1F, #7F2F17);
       color: #FFFFFF;
+      padding: 1rem 0.5rem;
     }
     .dark header {
-      background: #1F2937;
-      color: #FFFFFF;
+      background: linear-gradient(to bottom, #1F2937, #111827);
     }
     header h1, header p {
       color: #FFFFFF;
@@ -92,6 +101,13 @@
     #darkModeToggle {
       background: #FFFFFF;
       color: #A33F1F;
+      padding: 0.3rem 1rem;
+      border-radius: 9999px;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.8rem;
     }
     .dark #darkModeToggle {
       background: #4B5563;
@@ -100,53 +116,52 @@
     #scrollTop {
       display: none;
       position: fixed;
-      bottom: 1.5rem;
-      right: 1.5rem;
+      bottom: 1rem;
+      right: 1rem;
       background: #A33F1F;
       color: #FFFFFF;
-      padding: 0.75rem;
+      padding: 0.5rem;
       border-radius: 50%;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
       transition: background 0.3s ease, transform 0.2s ease;
     }
     #scrollTop:hover {
       background: #EF6C00;
-      transform: translateY(-2px);
+      transform: translateY(-4px);
     }
     .dark #scrollTop {
       background: #EF6C00;
-      color: #FFFFFF;
     }
     .dark #scrollTop:hover {
       background: #FF8C00;
     }
     footer {
-      background: #A33F1F;
+      background: linear-gradient(to top, #A33F1F, #7F2F17);
       color: #FFFFFF;
+      padding: 1.5rem 0.5rem;
     }
     .dark footer {
-      background: #1F2937;
-      color: #FFFFFF;
+      background: linear-gradient(to top, #1F2937, #111827);
     }
     /* Hamburger Menu Styles */
     .hamburger {
-      position: absolute;
+      position: fixed;
       top: 1rem;
       right: 1rem;
       display: flex;
       flex-direction: column;
       justify-content: space-around;
-      width: 2rem;
-      height: 1.5rem;
+      width: 1.75rem;
+      height: 1.25rem;
       background: transparent;
       border: none;
       cursor: pointer;
       padding: 0;
-      z-index: 30;
+      z-index: 60;
     }
     .hamburger span {
       width: 100%;
-      height: 0.25rem;
+      height: 0.2rem;
       background: #FFFFFF;
       border-radius: 10px;
       transition: all 0.3s ease;
@@ -155,31 +170,33 @@
       background: #F9FAFB;
     }
     .hamburger.active span:nth-child(1) {
-      transform: translateY(11px) rotate(45deg);
+      transform: translateY(9px) rotate(45deg);
     }
     .hamburger.active span:nth-child(2) {
       opacity: 0;
     }
     .hamburger.active span:nth-child(3) {
-      transform: translateY(-11px) rotate(-45deg);
+      transform: translateY(-9px) rotate(-45deg);
     }
     .nav-menu {
       position: fixed;
       top: 0;
       right: 0;
-      width: 75%;
-      height: 100%;
+      width: 100%;
+      max-width: 300px;
+      height: 100vh;
       background: #A33F1F;
+      display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: flex-start;
-      padding: 4rem 1rem;
+      padding: 4rem 0.5rem;
       transform: translateX(100%);
       opacity: 0;
       visibility: hidden;
       transition: transform 0.3s ease, opacity 0.3s ease, visibility 0.3s ease;
       box-shadow: -4px 0 8px rgba(0, 0, 0, 0.2);
-      z-index: 20;
+      z-index: 50;
     }
     .nav-menu.active {
       transform: translateX(0);
@@ -192,7 +209,7 @@
     .nav-menu a {
       background: #FFFFFF;
       color: #A33F1F;
-      padding: 0.75rem 2rem;
+      padding: 0.5rem 1rem;
       border-radius: 9999px;
       font-weight: 500;
       text-decoration: none;
@@ -201,8 +218,9 @@
       margin: 0.5rem 0;
       transition: background 0.3s ease, color 0.3s ease, transform 0.2s ease;
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      font-size: 0.85rem;
     }
-    .nav-menu a:hover {
+    .nav-menu a:hover, .nav-menu a:focus {
       background: #EF6C00;
       color: #FFFFFF;
       transform: translateY(-2px);
@@ -211,46 +229,70 @@
       background: #4B5563;
       color: #F9FAFB;
     }
-    .dark .nav-menu a:hover {
+    .dark .nav-menu a:hover, .dark .nav-menu a:focus {
       background: #FF8C00;
       color: #FFFFFF;
     }
-    @media (max-width: 640px) {
+    .qr-placeholder {
+      background: linear-gradient(to right, #A33F1F, #EF6C00);
+      width: 100%;
+      height: 6rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #FFFFFF;
+      font-size: 1.25rem;
+      font-weight: 700;
+      border-radius: 12px 12px 0 0;
+    }
+    .dark .qr-placeholder {
+      background: linear-gradient(to right, #EF6C00, #FF8C00);
+    }
+    /* Media Queries for Minor Adjustments */
+    @media (min-width: 641px) {
+      .container {
+        max-width: 640px;
+      }
+      header h1 {
+        font-size: 2rem;
+      }
+      header p {
+        font-size: 0.95rem;
+      }
       .instrument-card {
-        max-width: 100%;
         padding: 1rem;
       }
-      .model-container {
-        height: 280px;
+      .instrument-card h2 {
+        font-size: 1.3rem;
       }
-      .text-2xl {
-        font-size: 1.5rem;
+      .instrument-card p {
+        font-size: 0.9rem;
       }
-      .text-lg {
-        font-size: 1rem;
-      }
-    }
-    @media (min-width: 641px) and (max-width: 1024px) {
-      .instrument-card {
-        max-width: 90%;
-      }
-      .model-container {
-        height: 300px;
-      }
-      .nav-menu a {
+      .play-btn, .stop-btn, .play-narration-btn, .stop-narration-btn {
         padding: 0.5rem 1.5rem;
-        width: 180px;
+        font-size: 0.9rem;
+      }
+      #darkModeToggle {
+        padding: 0.4rem 1.2rem;
+        font-size: 0.85rem;
+      }
+      .model-container {
+        height: 220px;
+      }
+      .qr-placeholder {
+        height: 6.5rem;
+        font-size: 1.3rem;
       }
     }
   </style>
 </head>
 <body class="min-h-screen flex flex-col">
   <!-- Header -->
-  <header class="bg-[#A33F1F] text-white py-8 text-center shadow-lg relative" data-aos="fade-in">
-    <h1 class="text-5xl font-bold">เครื่องดนตรีอีสาน</h1>
-    <p class="mt-3 text-xl">สำรวจมรดกทางวัฒนธรรมผ่านเสียงดนตรีแห่งอีสาน</p>
-    <button id="darkModeToggle" class="mt-4 bg-white text-[#A33F1F] px-4 py-2 rounded-full flex items-center mx-auto" aria-label="สลับโหมดมืด/สว่าง">
-      <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/></svg>
+  <header class="text-white text-center shadow-lg relative" data-aos="fade-down">
+    <h1 class="text-2xl font-bold pt-4">เครื่องดนตรีอีสาน</h1>
+    <p class="mt-1 text-sm">สำรวจมรดกทางวัฒนธรรมผ่านเสียงดนตรีแห่งอีสาน</p>
+    <button id="darkModeToggle" class="mt-3 px-4 py-1 rounded-full flex items-center mx-auto" aria-label="สลับโหมดมืด/สว่าง">
+      <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/></svg>
       <span>สลับโหมด</span>
     </button>
     <button class="hamburger" id="hamburger" aria-label="เปิด/ปิดเมนู" aria-expanded="false">
@@ -259,375 +301,385 @@
       <span></span>
     </button>
     <nav class="nav-menu" id="nav-menu">
+  
       <a href="inspiration.html" aria-label="ไปยังหน้าแรงบันดาลใจ">แรงบันดาลใจ</a>
       <a href="insovation.html" aria-label="ไปยังหน้านวัตกรรม">นวัตกรรม</a>
-      
     </nav>
   </header>
 
   <!-- Main Content -->
-  <main class="container mx-auto px-6 py-12">
-    <div class="grid grid-cols-1 gap-8">
+  <main class="container mx-auto px-4 py-6">
+    <div class="grid grid-cols-1 gap-6">
       <!-- พิณ -->
-      <div class="instrument-card bg-white rounded-lg shadow-lg p-6" data-aos="fade-up" data-aos-duration="800">
+      <div class="instrument-card" data-aos="fade-up" data-aos-duration="800">
         <div class="relative">
-          <div class="model-container" data-model="Models/phin.glb">
-            <div class="absolute top-3 left-3 flex space-x-2">
-              <button onclick="toggleBackground(this)" class="bg-white p-2 rounded-full shadow" aria-label="เปลี่ยนสีพื้นหลัง">🌈</button>
-              <button onclick="resetCamera(this)" class="bg-white p-2 rounded-full shadow" aria-label="รีเซ็ตมุมมอง">🔄</button>
-            </div>
+          <div class="model-container" data-model="Models/phin.glb"></div>
+          <div class="absolute top-2 left-2 flex space-x-2">
+            <button onclick="toggleBackground(this)" class="bg-white p-1.5 rounded-full shadow" aria-label="เปลี่ยนสีพื้นหลัง">🌈</button>
+            <button onclick="resetCamera(this)" class="bg-white p-1.5 rounded-full shadow" aria-label="รีเซ็ตมุมมอง">🔄</button>
           </div>
-          <div class="absolute bottom-3 right-3 flex space-x-3">
-            <button onclick="playSound('phin')" class="play-btn text-white px-5 py-2.5 rounded-full flex items-center space-x-2" aria-label="เล่นเสียงพิณ">
-              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M8 5v10l10-5L8 5z"/></svg>
-              <span>เล่นเสียง</span>
+          <div class="absolute bottom-2 right-2 flex space-x-2">
+            <button onclick="playSound('phin')" class="play-btn flex items-center space-x-1" aria-label="เล่นเสียงพิณ">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M8 5v10l10-5L8 5z"/></svg>
+              <span>เล่น</span>
             </button>
-            <button onclick="stopSound()" class="stop-btn text-white px-5 py-2.5 rounded-full flex items-center space-x-2" aria-label="หยุดเสียง">
-              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M6 6h8v8H6z"/></svg>
-              <span>หยุดเสียง</span>
+            <button onclick="stopSound()" class="stop-btn flex items-center space-x-1" aria-label="หยุดเสียง">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M6 6h8v8H6z"/></svg>
+              <span>หยุด</span>
             </button>
           </div>
         </div>
-        <h2 class="text-2xl font-bold mt-5 text-[#A33F1F]">พิณ</h2>
-        <p class="text-[#4B5EAA] mt-3 leading-relaxed">เป็นเครื่องดนตรีที่บรรเลงด้วยการดีด มี ๒-๓ สาย แต่ขึ้นเป็นสองคู่ โดยขึ้นคู่ ๕ ดีดเป็นทำนองเพลง ตัวพิณและคันทวนนิยมแกะด้วยไม้ชิ้นเดียวกัน มีนมสำหรับตั้งเสียง สายพิณนิยมทำด้วยโลหะ โดยเฉพาะสายลวดเบรคจักรยาน ที่ดีดนิยมทำด้วยขาสัตว์แบนๆ เหลาให้บางพอที่จะดีดสะบัดได้</p>
-        <div class="mt-4 flex space-x-3">
-          <button onclick="playNarration('phin')" class="play-narration-btn text-white px-5 py-2.5 rounded-full flex items-center space-x-2" aria-label="เล่นคำบรรยายพิณ">
-            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M8 5v10l10-5L8 5z"/></svg>
-            <span>เล่นคำบรรยาย</span>
-          </button>
-          <button onclick="stopNarration()" class="stop-narration-btn text-white px-5 py-2.5 rounded-full flex items-center space-x-2" aria-label="หยุดคำบรรยาย">
-            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M6 6h8v8H6z"/></svg>
-            <span>หยุดคำบรรยาย</span>
-          </button>
+        <div class="p-4">
+          <h2 class="text-base font-bold">พิณ</h2>
+          <p class="mt-2 leading-relaxed">เป็นเครื่องดนตรีที่บรรเลงด้วยการดีด มี ๒-๓ สาย แต่ขึ้นเป็นสองคู่ โดยขึ้นคู่ ๕ ดีดเป็นทำนองเพลง ตัวพิณและคันทวนนิยมแกะด้วยไม้ชิ้นเดียวกัน มีนมสำหรับตั้งเสียง สายพิณนิยมทำด้วยโลหะ โดยเฉพาะสายลวดเบรคจักรยาน ที่ดีดนิยมทำด้วยขาสัตว์แบนๆ เหลาให้บางพอที่จะดีดสะบัดได้</p>
+          <div class="mt-3 flex space-x-2">
+            <button onclick="playNarration('phin')" class="play-narration-btn flex items-center space-x-1" aria-label="เล่นคำบรรยายพิณ">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M8 5v10l10-5L8 5z"/></svg>
+              <span>คำบรรยาย</span>
+            </button>
+            <button onclick="stopNarration()" class="stop-narration-btn flex items-center space-x-1" aria-label="หยุดคำบรรยาย">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M6 6h8v8H6z"/></svg>
+              <span>หยุด</span>
+            </button>
+          </div>
         </div>
       </div>
 
       <!-- โหวด -->
-      <div class="instrument-card bg-white rounded-lg shadow-lg p-6" data-aos="fade-up" data-aos-duration="800">
+      <div class="instrument-card" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
         <div class="relative">
-          <div class="model-container" data-model="Models/wode.glb">
-            <div class="absolute top-3 left-3 flex space-x-2">
-              <button onclick="toggleBackground(this)" class="bg-white p-2 rounded-full shadow" aria-label="เปลี่ยนสีพื้นหลัง">🌈</button>
-              <button onclick="resetCamera(this)" class="bg-white p-2 rounded-full shadow" aria-label="รีเซ็ตมุมมอง">🔄</button>
-            </div>
+          <div class="model-container" data-model="Models/wode.glb"></div>
+          <div class="absolute top-2 left-2 flex space-x-2">
+            <button onclick="toggleBackground(this)" class="bg-white p-1.5 rounded-full shadow" aria-label="เปลี่ยนสีพื้นหลัง">🌈</button>
+            <button onclick="resetCamera(this)" class="bg-white p-1.5 rounded-full shadow" aria-label="รีเซ็ตมุมมอง">🔄</button>
           </div>
-          <div class="absolute bottom-3 right-3 flex space-x-3">
-            <button onclick="playSound('wot')" class="play-btn text-white px-5 py-2.5 rounded-full flex items-center space-x-2" aria-label="เล่นเสียงโหวด">
-              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M8 5v10l10-5L8 5z"/></svg>
-              <span>เล่นเสียง</span>
+          <div class="absolute bottom-2 right-2 flex space-x-2">
+            <button onclick="playSound('wot')" class="play-btn flex items-center space-x-1" aria-label="เล่นเสียงโหวด">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M8 5v10l10-5L8 5z"/></svg>
+              <span>เล่น</span>
             </button>
-            <button onclick="stopSound()" class="stop-btn text-white px-5 py-2.5 rounded-full flex items-center space-x-2" aria-label="หยุดเสียง">
-              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M6 6h8v8H6z"/></svg>
-              <span>หยุดเสียง</span>
+            <button onclick="stopSound()" class="stop-btn flex items-center space-x-1" aria-label="หยุดเสียง">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M6 6h8v8H6z"/></svg>
+              <span>หยุด</span>
             </button>
           </div>
         </div>
-        <h2 class="text-2xl font-bold mt-5 text-[#A33F1F]">โหวด</h2>
-        <p class="text-[#4B5EAA] mt-3 leading-relaxed">โหวด เป็นเครื่องเป่าชนิดหนึ่งที่ไม่มีลิ้น เกิดจากกระแสลมที่เป่าผ่านไม้รวกหรือไม้ เฮี้ย (ไม้กู่แคน) หรือไม้ไผ่ ด้านรูเปิดของตัวโหวดทำด้วยไม้รวกขนาดเล็ก สั้น ยาว (เรียงลำดับตามความสูงต่ำของเสียง) ติดอยู่รอบกระบอกไม้ไผ่ที่ใช้เป็นแกนกลางติดไว้ด้วยขี้สูด มีจำนวน ๖-๙ เลา ความยาวประมาณ ๒๕ เซนติเมตร เวลาเป่าจะหมุนไปรอบๆตามเสียงที่ต้องการ</p>
-        <div class="mt-4 flex space-x-3">
-          <button onclick="playNarration('wot')" class="play-narration-btn text-white px-5 py-2.5 rounded-full flex items-center space-x-2" aria-label="เล่นคำบรรยายโหวด">
-            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M8 5v10l10-5L8 5z"/></svg>
-            <span>เล่นคำบรรยาย</span>
-          </button>
-          <button onclick="stopNarration()" class="stop-narration-btn text-white px-5 py-2.5 rounded-full flex items-center space-x-2" aria-label="หยุดคำบรรยาย">
-            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M6 6h8v8H6z"/></svg>
-            <span>หยุดคำบรรยาย</span>
-          </button>
+        <div class="p-4">
+          <h2 class="text-base font-bold">โหวด</h2>
+          <p class="mt-2 leading-relaxed">โหวด เป็นเครื่องเป่าชนิดหนึ่งที่ไม่มีลิ้น เกิดจากกระแสลมที่เป่าผ่านไม้รวกหรือไม้ เฮี้ย (ไม้กู่แคน) หรือไม้ไผ่ ด้านรูเปิดของตัวโหวดทำด้วยไม้รวกขนาดเล็ก สั้น ยาว (เรียงลำดับตามความสูงต่ำของเสียง) ติดอยู่รอบกระบอกไม้ไผ่ที่ใช้เป็นแกนกลางติดไว้ด้วยขี้สูด มีจำนวน ๖-๙ เลา ความยาวประมาณ ๒๕ เซนติเมตร เวลาเป่าจะหมุนไปรอบๆตามเสียงที่ต้องการ</p>
+          <div class="mt-3 flex space-x-2">
+            <button onclick="playNarration('wot')" class="play-narration-btn flex items-center space-x-1" aria-label="เล่นคำบรรยายโหวด">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M8 5v10l10-5L8 5z"/></svg>
+              <span>คำบรรยาย</span>
+            </button>
+            <button onclick="stopNarration()" class="stop-narration-btn flex items-center space-x-1" aria-label="หยุดคำบรรยาย">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M6 6h8v8H6z"/></svg>
+              <span>หยุด</span>
+            </button>
+          </div>
         </div>
       </div>
 
       <!-- แคน -->
-      <div class="instrument-card bg-white rounded-lg shadow-lg p-6" data-aos="fade-up" data-aos-duration="800">
+      <div class="instrument-card" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
         <div class="relative">
-          <div class="model-container" data-model="Models/kane.glb">
-            <div class="absolute top-3 left-3 flex space-x-2">
-              <button onclick="toggleBackground(this)" class="bg-white p-2 rounded-full shadow" aria-label="เปลี่ยนสีพื้นหลัง">🌈</button>
-              <button onclick="resetCamera(this)" class="bg-white p-2 rounded-full shadow" aria-label="รีเซ็ตมุมมอง">🔄</button>
-            </div>
+          <div class="model-container" data-model="Models/kane.glb"></div>
+          <div class="absolute top-2 left-2 flex space-x-2">
+            <button onclick="toggleBackground(this)" class="bg-white p-1.5 rounded-full shadow" aria-label="เปลี่ยนสีพื้นหลัง">🌈</button>
+            <button onclick="resetCamera(this)" class="bg-white p-1.5 rounded-full shadow" aria-label="รีเซ็ตมุมมอง">🔄</button>
           </div>
-          <div class="absolute bottom-3 right-3 flex space-x-3">
-            <button onclick="playSound('khaen')" class="play-btn text-white px-5 py-2.5 rounded-full flex items-center space-x-2" aria-label="เล่นเสียงแคน">
-              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M8 5v10l10-5L8 5z"/></svg>
-              <span>เล่นเสียง</span>
+          <div class="absolute bottom-2 right-2 flex space-x-2">
+            <button onclick="playSound('khaen')" class="play-btn flex items-center space-x-1" aria-label="เล่นเสียงแคน">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M8 5v10l10-5L8 5z"/></svg>
+              <span>เล่น</span>
             </button>
-            <button onclick="stopSound()" class="stop-btn text-white px-5 py-2.5 rounded-full flex items-center space-x-2" aria-label="หยุดเสียง">
-              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M6 6h8v8H6z"/></svg>
-              <span>หยุดเสียง</span>
+            <button onclick="stopSound()" class="stop-btn flex items-center space-x-1" aria-label="หยุดเสียง">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M6 6h8v8H6z"/></svg>
+              <span>หยุด</span>
             </button>
           </div>
         </div>
-        <h2 class="text-2xl font-bold mt-5 text-[#A33F1F]">แคน</h2>
-        <p class="text-[#4B5EAA] mt-3 leading-relaxed">แคน เป็นเครื่องดนตรีที่เป็นที่รู้จักมากที่สุดของชาวภาคอีสานเหนือ และอีสานกลางไม่รวมอีสานใต้ที่มีอิทธิพลเขมร ได้แก่ "แคน" แคนเป็นเครื่องดนตรีสมบูรณ์แบบที่สุด ที่มีประวัติความเป็นมาย้อนหลังไปหลายพันปี แคนทำด้วยไม้ซางมีลิ้นโลหะ เช่นดีบุก เงิน หรือทองแดง บางๆ ประกอบไว้ในส่วนที่ประกอบอยู่ในเต้าแคน แคนมีหลายขนาด เช่น แคน ๗ แคน ๙ ข้าง ๆ เต้าแคน ด้านบนมีรูปิดเปิดบังคับเสียง เวลา เป่า เป่า ที่เต้าแคนด้านหน้า ใช้มือทั้งสอง ประกอบจับเต้าแคนในลักษณะเฉียงเล็กน้อย แคนเป็นเครื่องดนตรีที่บรรเลงได้ทั้งทำนองเพลงประสานเสียง และให้จังหวะในตัวเอง จึงมีลีลาการบรรเลงที่วิจิตรพิสดารมาก ระบบเสียงของแคนเป็นทั้งระบบ ไดอะโทนิค และเพนตะโทนิค มีขั้น คู่เสียงที่เล่นได้ทั้งแบบตะวันตกและแบบไทยรวมทั้งคู่เสียงระดับเดียวกันอีกด้วย</p>
-        <div class="mt-4 flex space-x-3">
-          <button onclick="playNarration('khaen')" class="play-narration-btn text-white px-5 py-2.5 rounded-full flex items-center space-x-2" aria-label="เล่นคำบรรยายแคน">
-            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M8 5v10l10-5L8 5z"/></svg>
-            <span>เล่นคำบรรยาย</span>
-          </button>
-          <button onclick="stopNarration()" class="stop-narration-btn text-white px-5 py-2.5 rounded-full flex items-center space-x-2" aria-label="หยุดคำบรรยาย">
-            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M6 6h8v8H6z"/></svg>
-            <span>หยุดคำบรรยาย</span>
-          </button>
+        <div class="p-4">
+          <h2 class="text-base font-bold">แคน</h2>
+          <p class="mt-2 leading-relaxed">แคน เป็นเครื่องดนตรีที่เป็นที่รู้จักมากที่สุดของชาวภาคอีสานเหนือ และอีสานกลางไม่รวมอีสานใต้ที่มีอิทธิพลเขมร ได้แก่ "แคน" แคนเป็นเครื่องดนตรีสมบูรณ์แบบที่สุด ที่มีประวัติความเป็นมาย้อนหลังไปหลายพันปี แคนทำด้วยไม้ซางมีลิ้นโลหะ เช่นดีบุก เงิน หรือทองแดง บางๆ ประกอบไว้ในส่วนที่ประกอบอยู่ในเต้าแคน แคนมีหลายขนาด เช่น แคน ๗ แคน ๙ ข้าง ๆ เต้าแคน ด้านบนมีรูปิดเปิดบังคับเสียง เวลา เป่า เป่า ที่เต้าแคนด้านหน้า ใช้มือทั้งสอง ประกอบจับเต้าแคนในลักษณะเฉียงเล็กน้อย แคนเป็นเครื่องดนตรีที่บรรเลงได้ทั้งทำนองเพลงประสานเสียง และให้จังหวะในตัวเอง จึงมีลีลาการบรรเลงที่วิจิตรพิสดารมาก ระบบเสียงของแคนเป็นทั้งระบบ ไดอะโทนิค และเพนตะโทนิค มีขั้น คู่เสียงที่เล่นได้ทั้งแบบตะวันตกและแบบไทยรวมทั้งคู่เสียงระดับเดียวกันอีกด้วย</p>
+          <div class="mt-3 flex space-x-2">
+            <button onclick="playNarration('khaen')" class="play-narration-btn flex items-center space-x-1" aria-label="เล่นคำบรรยายแคน">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M8 5v10l10-5L8 5z"/></svg>
+              <span>คำบรรยาย</span>
+            </button>
+            <button onclick="stopNarration()" class="stop-narration-btn flex items-center space-x-1" aria-label="หยุดคำบรรยาย">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M6 6h8v8H6z"/></svg>
+              <span>หยุด</span>
+            </button>
+          </div>
         </div>
       </div>
 
       <!-- โปงลาง -->
-      <div class="instrument-card bg-white rounded-lg shadow-lg p-6" data-aos="fade-up" data-aos-duration="800">
+      <div class="instrument-card" data-aos="fade-up" data-aos-duration="800" data-aos-delay="300">
         <div class="relative">
-          <div class="model-container" data-model="Models/ponglang.glb">
-            <div class="absolute top-3 left-3 flex space-x-2">
-              <button onclick="toggleBackground(this)" class="bg-white p-2 rounded-full shadow" aria-label="เปลี่ยนสีพื้นหลัง">🌈</button>
-              <button onclick="resetCamera(this)" class="bg-white p-2 rounded-full shadow" aria-label="รีเซ็ตมุมมอง">🔄</button>
-            </div>
+          <div class="model-container" data-model="Models/ponglang.glb"></div>
+          <div class="absolute top-2 left-2 flex space-x-2">
+            <button onclick="toggleBackground(this)" class="bg-white p-1.5 rounded-full shadow" aria-label="เปลี่ยนสีพื้นหลัง">🌈</button>
+            <button onclick="resetCamera(this)" class="bg-white p-1.5 rounded-full shadow" aria-label="รีเซ็ตมุมมอง">🔄</button>
           </div>
-          <div class="absolute bottom-3 right-3 flex space-x-3">
-            <button onclick="playSound('ponglang')" class="play-btn text-white px-5 py-2.5 rounded-full flex items-center space-x-2" aria-label="เล่นเสียงโปงลาง">
-              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M8 5v10l10-5L8 5z"/></svg>
-              <span>เล่นเสียง</span>
+          <div class="absolute bottom-2 right-2 flex space-x-2">
+            <button onclick="playSound('ponglang')" class="play-btn flex items-center space-x-1" aria-label="เล่นเสียงโปงลาง">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M8 5v10l10-5L8 5z"/></svg>
+              <span>เล่น</span>
             </button>
-            <button onclick="stopSound()" class="stop-btn text-white px-5 py-2.5 rounded-full flex items-center space-x-2" aria-label="หยุดเสียง">
-              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M6 6h8v8H6z"/></svg>
-              <span>หยุดเสียง</span>
+            <button onclick="stopSound()" class="stop-btn flex items-center space-x-1" aria-label="หยุดเสียง">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M6 6h8v8H6z"/></svg>
+              <span>หยุด</span>
             </button>
           </div>
         </div>
-        <h2 class="text-2xl font-bold mt-5 text-[#A33F1F]">โปงลาง</h2>
-        <p class="text-[#4B5EAA] mt-3 leading-relaxed">โปงลางเป็นเครื่องดนตรีประเภทที่บรรเลงทำนองด้วยการตีเพียงชนิดเดียวของภาคอีสาน โดยบรรเลงร่วมกันกับแคน พิณและเครื่องประกอบจังหวะ หรือบรรเลงเดี่ยว ตัวโปงลางทำด้วยท่อนไม้แข็งขนาดต่างกันเรียงตามลำดับเสียงร้อยด้วยเชือกเป็นลูกระนาด ปลายข้างเสียงสูงผูกแขวนไว้กับกิ่งไม้ และข้างเสียงต่ำปล่อยทอดเยื้องลงมาคล้องไว้กับหัวแม่เท้าของผู้บรรเลง หรือคล้องกับวัสดุ ปกติผู้เล่นโปงลางรางหนึ่งมี ๒ คน คือคนบรรเลงทำนองเพลงกับคนบรรเลงเสียงกระทบแบบคู่ประสาน ไม้ที่ตีโปงลางทำด้วยไม้เนื้อแข็งเป็นรูปคล้ายค้อนตีด้วยมือสองข้าง ข้างละอัน ขนาดของโปงลางไม่มีมาตรฐานแน่นอน</p>
-        <div class="mt-4 flex space-x-3">
-          <button onclick="playNarration('ponglang')" class="play-narration-btn text-white px-5 py-2.5 rounded-full flex items-center space-x-2" aria-label="เล่นคำบรรยายโปงลาง">
-            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M8 5v10l10-5L8 5z"/></svg>
-            <span>เล่นคำบรรยาย</span>
-          </button>
-          <button onclick="stopNarration()" class="stop-narration-btn text-white px-5 py-2.5 rounded-full flex items-center space-x-2" aria-label="หยุดคำบรรยาย">
-            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M6 6h8v8H6z"/></svg>
-            <span>หยุดคำบรรยาย</span>
-          </button>
+        <div class="p-4">
+          <h2 class="text-base font-bold">โปงลาง</h2>
+          <p class="mt-2 leading-relaxed">โปงลางเป็นเครื่องดนตรีประเภทที่บรรเลงทำนองด้วยการตีเพียงชนิดเดียวของภาคอีสาน โดยบรรเลงร่วมกันกับแคน พิณและเครื่องประกอบจังหวะ หรือบรรเลงเดี่ยว ตัวโปงลางทำด้วยท่อนไม้แข็งขนาดต่างกันเรียงตามลำดับเสียงร้อยด้วยเชือกเป็นลูกระนาด ปลายข้างเสียงสูงผูกแขวนไว้กับกิ่งไม้ และข้างเสียงต่ำปล่อยทอดเยื้องลงมาคล้องไว้กับหัวแม่เท้าของผู้บรรเลง หรือคล้องกับวัสดุ ปกติผู้เล่นโปงลางรางหนึ่งมี ๒ คน คือคนบรรเลงทำนองเพลงกับคนบรรเลงเสียงกระทบแบบคู่ประสาน ไม้ที่ตีโปงลางทำด้วยไม้เนื้อแข็งเป็นรูปคล้ายค้อนตีด้วยมือสองข้าง ข้างละอัน ขนาดของโปงลางไม่มีมาตรฐานแน่นอน</p>
+          <div class="mt-3 flex space-x-2">
+            <button onclick="playNarration('ponglang')" class="play-narration-btn flex items-center space-x-1" aria-label="เล่นคำบรรยายโปงลาง">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M8 5v10l10-5L8 5z"/></svg>
+              <span>คำบรรยาย</span>
+            </button>
+            <button onclick="stopNarration()" class="stop-narration-btn flex items-center space-x-1" aria-label="หยุดคำบรรยาย">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M6 6h8v8H6z"/></svg>
+              <span>หยุด</span>
+            </button>
+          </div>
         </div>
       </div>
 
       <!-- หืน -->
-      <div class="instrument-card bg-white rounded-lg shadow-lg p-6" data-aos="fade-up" data-aos-duration="800">
+      <div class="instrument-card" data-aos="fade-up" data-aos-duration="800" data-aos-delay="400">
         <div class="relative">
-          <div class="model-container" data-model="Models/huen.glb">
-            <div class="absolute top-3 left-3 flex space-x-2">
-              <button onclick="toggleBackground(this)" class="bg-white p-2 rounded-full shadow" aria-label="เปลี่ยนสีพื้นหลัง">🌈</button>
-              <button onclick="resetCamera(this)" class="bg-white p-2 rounded-full shadow" aria-label="รีเซ็ตมุมมอง">🔄</button>
-            </div>
+          <div class="model-container" data-model="Models/huen.glb"></div>
+          <div class="absolute top-2 left-2 flex space-x-2">
+            <button onclick="toggleBackground(this)" class="bg-white p-1.5 rounded-full shadow" aria-label="เปลี่ยนสีพื้นหลัง">🌈</button>
+            <button onclick="resetCamera(this)" class="bg-white p-1.5 rounded-full shadow" aria-label="รีเซ็ตมุมมอง">🔄</button>
           </div>
-          <div class="absolute bottom-3 right-3 flex space-x-3">
-            <button onclick="playSound('huen')" class="play-btn text-white px-5 py-2.5 rounded-full flex items-center space-x-2" aria-label="เล่นเสียงหืน">
-              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M8 5v10l10-5L8 5z"/></svg>
-              <span>เล่นเสียง</span>
+          <div class="absolute bottom-2 right-2 flex space-x-2">
+            <button onclick="playSound('huen')" class="play-btn flex items-center space-x-1" aria-label="เล่นเสียงหืน">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M8 5v10l10-5L8 5z"/></svg>
+              <span>เล่น</span>
             </button>
-            <button onclick="stopSound()" class="stop-btn text-white px-5 py-2.5 rounded-full flex items-center space-x-2" aria-label="หยุดเสียง">
-              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M6 6h8v8H6z"/></svg>
-              <span>หยุดเสียง</span>
+            <button onclick="stopSound()" class="stop-btn flex items-center space-x-1" aria-label="หยุดเสียง">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M6 6h8v8H6z"/></svg>
+              <span>หยุด</span>
             </button>
           </div>
         </div>
-        <h2 class="text-2xl font-bold mt-5 text-[#A33F1F]">หืน</h2>
-        <p class="text-[#4B5EAA] mt-3 leading-relaxed">หืน เป็นเครื่องดนตรีกึ่งดีดกึ่งเป่าอย่างหนึ่ง มีทั้งที่ทำด้วยไม้ไผ่และโลหะเซาะร่องตรงกลางเป็นลิ้นในตัว เวลาเล่นประกบหืนเข้ากับปาก ดีดที่ปลายข้างหนึ่งด้วยนิ้วหัวแม่มือ หรือนิ้วชี้ อาศัยกระพุ้งปากเป็นกล่องเสียง ทำให้เกิดเสียงสูงต่ำตามขนาดของกระพุ้งปากที่ทำสามารถดีดเป็นเสียงแท้คล้ายเสียงคนออกเสียงสระ เครื่องดนตรีนี้มีเล่นกันในพวกชนเผ่ามูเซอ เรียกชื่อว่า เปี๊ยะ เครื่องดนตรีชนิดนี้มิได้มีเฉพาะในประเทศไทยเท่านั้น แต่มีในทุกส่วนของโลก เช่น แถบมองโกเลีย ปาปัวนิวกินี อัฟริกา และยุโรป นับเป็นเครื่องดนตรีโบราณชิ้นหนึ่งที่น่าศึกษาอย่างยิ่ง</p>
-        <div class="mt-4 flex space-x-3">
-          <button onclick="playNarration('huen')" class="play-narration-btn text-white px-5 py-2.5 rounded-full flex items-center space-x-2" aria-label="เล่นคำบรรยายหืน">
-            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M8 5v10l10-5L8 5z"/></svg>
-            <span>เล่นคำบรรยาย</span>
-          </button>
-          <button onclick="stopNarration()" class="stop-narration-btn text-white px-5 py-2.5 rounded-full flex items-center space-x-2" aria-label="หยุดคำบรรยาย">
-            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M6 6h8v8H6z"/></svg>
-            <span>หยุดคำบรรยาย</span>
-          </button>
+        <div class="p-4">
+          <h2 class="text-base font-bold">หืน</h2>
+          <p class="mt-2 leading-relaxed">หืน เป็นเครื่องดนตรีกึ่งดีดกึ่งเป่าอย่างหนึ่ง มีทั้งที่ทำด้วยไม้ไผ่และโลหะเซาะร่องตรงกลางเป็นลิ้นในตัว เวลาเล่นประกบหืนเข้ากับปาก ดีดที่ปลายข้างหนึ่งด้วยนิ้วหัวแม่มือ หรือนิ้วชี้ อาศัยกระพุ้งปากเป็นกล่องเสียง ทำให้เกิดเสียงสูงต่ำตามขนาดของกระพุ้งปากที่ทำสามารถดีดเป็นเสียงแท้คล้ายเสียงคนออกเสียงสระ เครื่องดนตรีนี้มีเล่นกันในพวกชนเผ่ามูเซอ เรียกชื่อว่า เปี๊ยะ เครื่องดนตรีชนิดนี้มิได้มีเฉพาะในประเทศไทยเท่านั้น แต่มีในทุกส่วนของโลก เช่น แถบมองโกเลีย ปาปัวนิวกินี อัฟริกา และยุโรป นับเป็นเครื่องดนตรีโบราณชิ้นหนึ่งที่น่าศึกษาอย่างยิ่ง</p>
+          <div class="mt-3 flex space-x-2">
+            <button onclick="playNarration('huen')" class="play-narration-btn flex items-center space-x-1" aria-label="เล่นคำบรรยายหืน">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M8 5v10l10-5L8 5z"/></svg>
+              <span>คำบรรยาย</span>
+            </button>
+            <button onclick="stopNarration()" class="stop-narration-btn flex items-center space-x-1" aria-label="หยุดคำบรรยาย">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M6 6h8v8H6z"/></svg>
+              <span>หยุด</span>
+            </button>
+          </div>
         </div>
       </div>
 
       <!-- จะเข้กระบือ -->
-      <div class="instrument-card bg-white rounded-lg shadow-lg p-6" data-aos="fade-up" data-aos-duration="800">
+      <div class="instrument-card" data-aos="fade-up" data-aos-duration="800" data-aos-delay="500">
         <div class="relative">
-          <div class="model-container" data-model="Models/krabue.glb">
-            <div class="absolute top-3 left-3 flex space-x-2">
-              <button onclick="toggleBackground(this)" class="bg-white p-2 rounded-full shadow" aria-label="เปลี่ยนสีพื้นหลัง">🌈</button>
-              <button onclick="resetCamera(this)" class="bg-white p-2 rounded-full shadow" aria-label="รีเซ็ตมุมมอง">🔄</button>
-            </div>
+          <div class="model-container" data-model="Models/krabue.glb"></div>
+          <div class="absolute top-2 left-2 flex space-x-2">
+            <button onclick="toggleBackground(this)" class="bg-white p-1.5 rounded-full shadow" aria-label="เปลี่ยนสีพื้นหลัง">🌈</button>
+            <button onclick="resetCamera(this)" class="bg-white p-1.5 rounded-full shadow" aria-label="รีเซ็ตมุมมอง">🔄</button>
           </div>
-          <div class="absolute bottom-3 right-3 flex space-x-3">
-            <button onclick="playSound('krabue')" class="play-btn text-white px-5 py-2.5 rounded-full flex items-center space-x-2" aria-label="เล่นเสียงจะเข้กระบือ">
-              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M8 5v10l10-5L8 5z"/></svg>
-              <span>เล่นเสียง</span>
+          <div class="absolute bottom-2 right-2 flex space-x-2">
+            <button onclick="playSound('krabue')" class="play-btn flex items-center space-x-1" aria-label="เล่นเสียงจะเข้กระบือ">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M8 5v10l10-5L8 5z"/></svg>
+              <span>เล่น</span>
             </button>
-            <button onclick="stopSound()" class="stop-btn text-white px-5 py-2.5 rounded-full flex items-center space-x-2" aria-label="หยุดเสียง">
-              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M6 6h8v8H6z"/></svg>
-              <span>หยุดเสียง</span>
+            <button onclick="stopSound()" class="stop-btn flex items-center space-x-1" aria-label="หยุดเสียง">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M6 6h8v8H6z"/></svg>
+              <span>หยุด</span>
             </button>
           </div>
         </div>
-        <h2 class="text-2xl font-bold mt-5 text-[#A33F1F]">จะเข้กระบือ</h2>
-        <p class="text-[#4B5EAA] mt-3 leading-relaxed">เป็นเครื่องดนตรีสำคัญชิ้นหนึ่งในวงมโหรีเขมร เป็นเครื่องดนตรีประเภทดีดในแนวนอน มี ๓ สาย สมัยก่อนสายทำจากเส้นไหมฟั่น ปัจจุบันทำจากสายเบรคจักรยาน การบรรเลงจะใช้มือซ้ายกดสายบนเสียงที่ต้องการ ส่วนมือขวาใช้สำหรับดีด</p>
-        <div class="mt-4 flex space-x-3">
-          <button onclick="playNarration('krabue')" class="play-narration-btn text-white px-5 py-2.5 rounded-full flex items-center space-x-2" aria-label="เล่นคำบรรยายจะเข้กระบือ">
-            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M8 5v10l10-5L8 5z"/></svg>
-            <span>เล่นคำบรรยาย</span>
-          </button>
-          <button onclick="stopNarration()" class="stop-narration-btn text-white px-5 py-2.5 rounded-full flex items-center space-x-2" aria-label="หยุดคำบรรยาย">
-            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M6 6h8v8H6z"/></svg>
-            <span>หยุดคำบรรยาย</span>
-          </button>
+        <div class="p-4">
+          <h2 class="text-base font-bold">จะเข้กระบือ</h2>
+          <p class="mt-2 leading-relaxed">เป็นเครื่องดนตรีสำคัญชิ้นหนึ่งในวงมโหรีเขมร เป็นเครื่องดนตรีประเภทดีดในแนวนอน มี ๓ สาย สมัยก่อนสายทำจากเส้นไหมฟั่น ปัจจุบันทำจากสายเบรคจักรยาน การบรรเลงจะใช้มือซ้ายกดสายบนเสียงที่ต้องการ ส่วนมือขวาใช้สำหรับดีด</p>
+          <div class="mt-3 flex space-x-2">
+            <button onclick="playNarration('krabue')" class="play-narration-btn flex items-center space-x-1" aria-label="เล่นคำบรรยายจะเข้กระบือ">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M8 5v10l10-5L8 5z"/></svg>
+              <span>คำบรรยาย</span>
+            </button>
+            <button onclick="stopNarration()" class="stop-narration-btn flex items-center space-x-1" aria-label="หยุดคำบรรยาย">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M6 6h8v8H6z"/></svg>
+              <span>หยุด</span>
+            </button>
+          </div>
         </div>
       </div>
 
       <!-- กระจับปี่ -->
-      <div class="instrument-card bg-white rounded-lg shadow-lg p-6" data-aos="fade-up" data-aos-duration="800">
+      <div class="instrument-card" data-aos="fade-up" data-aos-duration="800" data-aos-delay="600">
         <div class="relative">
-          <div class="model-container" data-model="Models/kachappi.glb">
-            <div class="absolute top-3 left-3 flex space-x-2">
-              <button onclick="toggleBackground(this)" class="bg-white p-2 rounded-full shadow" aria-label="เปลี่ยนสีพื้นหลัง">🌈</button>
-              <button onclick="resetCamera(this)" class="bg-white p-2 rounded-full shadow" aria-label="รีเซ็ตมุมมอง">🔄</button>
-            </div>
+          <div class="model-container" data-model="Models/kachappi.glb"></div>
+          <div class="absolute top-2 left-2 flex space-x-2">
+            <button onclick="toggleBackground(this)" class="bg-white p-1.5 rounded-full shadow" aria-label="เปลี่ยนสีพื้นหลัง">🌈</button>
+            <button onclick="resetCamera(this)" class="bg-white p-1.5 rounded-full shadow" aria-label="รีเซ็ตมุมมอง">🔄</button>
           </div>
-          <div class="absolute bottom-3 right-3 flex space-x-3">
-            <button onclick="playSound('jappey')" class="play-btn text-white px-5 py-2.5 rounded-full flex items-center space-x-2" aria-label="เล่นเสียงกระจับปี่">
-              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M8 5v10l10-5L8 5z"/></svg>
-              <span>เล่นเสียง</span>
+          <div class="absolute bottom-2 right-2 flex space-x-2">
+            <button onclick="playSound('jappey')" class="play-btn flex items-center space-x-1" aria-label="เล่นเสียงกระจับปี่">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M8 5v10l10-5L8 5z"/></svg>
+              <span>เล่น</span>
             </button>
-            <button onclick="stopSound()" class="stop-btn text-white px-5 py-2.5 rounded-full flex items-center space-x-2" aria-label="หยุดเสียง">
-              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M6 6h8v8H6z"/></svg>
-              <span>หยุดเสียง</span>
+            <button onclick="stopSound()" class="stop-btn flex items-center space-x-1" aria-label="หยุดเสียง">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M6 6h8v8H6z"/></svg>
+              <span>หยุด</span>
             </button>
           </div>
         </div>
-        <h2 class="text-2xl font-bold mt-5 text-[#A33F1F]">กระจับปี่</h2>
-        <p class="text-[#4B5EAA] mt-3 leading-relaxed">เป็นเครื่องดนตรีประเภทดีด โดยใช้กระที่ทำจากเขาสัตว์ กล่องเสียงทำด้วยไม้ขนุนหรือไม้สัก ส่วนปลายสุดมีรู ๒ รู ใช้ใส่ลูกบิดและร้อยสาย เมื่อบรรเลงจะตั้งขนานกับลำตัว มือขวาจับกระสำหรับดีด มือซ้ายกดที่สายเพื่อเปลี่ยนระดับเสียง</p>
-        <div class="mt-4 flex space-x-3">
-          <button onclick="playNarration('jappey')" class="play-narration-btn text-white px-5 py-2.5 rounded-full flex items-center space-x-2" aria-label="เล่นคำบรรยายกระจับปี่">
-            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M8 5v10l10-5L8 5z"/></svg>
-            <span>เล่นคำบรรยาย</span>
-          </button>
-          <button onclick="stopNarration()" class="stop-narration-btn text-white px-5 py-2.5 rounded-full flex items-center space-x-2" aria-label="หยุดคำบรรยาย">
-            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M6 6h8v8H6z"/></svg>
-            <span>หยุดคำบรรยาย</span>
-          </button>
+        <div class="p-4">
+          <h2 class="text-base font-bold">กระจับปี่</h2>
+          <p class="mt-2 leading-relaxed">เป็นเครื่องดนตรีประเภทดีด โดยใช้กระที่ทำจากเขาสัตว์ กล่องเสียงทำด้วยไม้ขนุนหรือไม้สัก ส่วนปลายสุดมีรู ๒ รู ใช้ใส่ลูกบิดและร้อยสาย เมื่อบรรเลงจะตั้งขนานกับลำตัว มือขวาจับกระสำหรับดีด มือซ้ายกดที่สายเพื่อเปลี่ยนระดับเสียง</p>
+          <div class="mt-3 flex space-x-2">
+            <button onclick="playNarration('jappey')" class="play-narration-btn flex items-center space-x-1" aria-label="เล่นคำบรรยายกระจับปี่">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M8 5v10l10-5L8 5z"/></svg>
+              <span>คำบรรยาย</span>
+            </button>
+            <button onclick="stopNarration()" class="stop-narration-btn flex items-center space-x-1" aria-label="หยุดคำบรรยาย">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M6 6h8v8H6z"/></svg>
+              <span>หยุด</span>
+            </button>
+          </div>
         </div>
       </div>
 
       <!-- ซอกันตรึม -->
-      <div class="instrument-card bg-white rounded-lg shadow-lg p-6" data-aos="fade-up" data-aos-duration="800">
+      <div class="instrument-card" data-aos="fade-up" data-aos-duration="800" data-aos-delay="700">
         <div class="relative">
-          <div class="model-container" data-model="Models/kantrum.glb">
-            <div class="absolute top-3 left-3 flex space-x-2">
-              <button onclick="toggleBackground(this)" class="bg-white p-2 rounded-full shadow" aria-label="เปลี่ยนสีพื้นหลัง">🌈</button>
-              <button onclick="resetCamera(this)" class="bg-white p-2 rounded-full shadow" aria-label="รีเซ็ตมุมมอง">🔄</button>
-            </div>
+          <div class="model-container" data-model="Models/kantrum.glb"></div>
+          <div class="absolute top-2 left-2 flex space-x-2">
+            <button onclick="toggleBackground(this)" class="bg-white p-1.5 rounded-full shadow" aria-label="เปลี่ยนสีพื้นหลัง">🌈</button>
+            <button onclick="resetCamera(this)" class="bg-white p-1.5 rounded-full shadow" aria-label="รีเซ็ตมุมมอง">🔄</button>
           </div>
-          <div class="absolute bottom-3 right-3 flex space-x-3">
-            <button onclick="playSound('sawkantrum')" class="play-btn text-white px-5 py-2.5 rounded-full flex items-center space-x-2" aria-label="เล่นเสียงซอกันตรึม">
-              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M8 5v10l10-5L8 5z"/></svg>
-              <span>เล่นเสียง</span>
+          <div class="absolute bottom-2 right-2 flex space-x-2">
+            <button onclick="playSound('sawkantrum')" class="play-btn flex items-center space-x-1" aria-label="เล่นเสียงซอกันตรึม">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M8 5v10l10-5L8 5z"/></svg>
+              <span>เล่น</span>
             </button>
-            <button onclick="stopSound()" class="stop-btn text-white px-5 py-2.5 rounded-full flex items-center space-x-2" aria-label="หยุดเสียง">
-              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M6 6h8v8H6z"/></svg>
-              <span>หยุดเสียง</span>
+            <button onclick="stopSound()" class="stop-btn flex items-center space-x-1" aria-label="หยุดเสียง">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M6 6h8v8H6z"/></svg>
+              <span>หยุด</span>
             </button>
           </div>
         </div>
-        <h2 class="text-2xl font-bold mt-5 text-[#A33F1F]">ซอกันตรึม</h2>
-        <p class="text-[#4B5EAA] mt-3 leading-relaxed">เป็นเครื่องสายใช้สี ทำด้วยไม้ กล่องเสียงขึงด้วยหนังงู มีช่องเสียงอยู่ด้านตรงข้ามหน้าซอ ใช้สายลวดมี ๒ สาย คันชักอยู่ระหว่างสาย คันซอยาวประมาณ ๖๐ เซนติเมตร มีลูกบิดอยู่ตอนนอกซอใช้รัด ด้วยเชือก ขนาดของซอแตกต่างกันไปตามความประสงค์ของผู้สร้าง โดยทั่วไปมี ๓ ขนาด คือ ขนาดเล็กเรียกตรัวจี้ ขนาดกลางเรียกตรัวเอก ขนาดใหญ่เรียกตรัวธม</p>
-        <div class="mt-4 flex space-x-3">
-          <button onclick="playNarration('sawkantrum')" class="play-narration-btn text-white px-5 py-2.5 rounded-full flex items-center space-x-2" aria-label="เล่นคำบรรยายซอกันตรึม">
-            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M8 5v10l10-5L8 5z"/></svg>
-            <span>เล่นคำบรรยาย</span>
-          </button>
-          <button onclick="stopNarration()" class="stop-narration-btn text-white px-5 py-2.5 rounded-full flex items-center space-x-2" aria-label="หยุดคำบรรยาย">
-            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M6 6h8v8H6z"/></svg>
-            <span>หยุดคำบรรยาย</span>
-          </button>
+        <div class="p-4">
+          <h2 class="text-base font-bold">ซอกันตรึม</h2>
+          <p class="mt-2 leading-relaxed">เป็นเครื่องสายใช้สี ทำด้วยไม้ กล่องเสียงขึงด้วยหนังงู มีช่องเสียงอยู่ด้านตรงข้ามหน้าซอ ใช้สายลวดมี ๒ สาย คันชักอยู่ระหว่างสาย คันซอยาวประมาณ ๖๐ เซนติเมตร มีลูกบิดอยู่ตอนนอกซอใช้รัด ด้วยเชือก ขนาดของซอแตกต่างกันไปตามความประสงค์ของผู้สร้าง โดยทั่วไปมี ๓ ขนาด คือ ขนาดเล็กเรียกตรัวจี้ ขนาดกลางเรียกตรัวเอก ขนาดใหญ่เรียกตรัวธม</p>
+          <div class="mt-3 flex space-x-2">
+            <button onclick="playNarration('sawkantrum')" class="play-narration-btn flex items-center space-x-1" aria-label="เล่นคำบรรยายซอกันตรึม">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M8 5v10l10-5L8 5z"/></svg>
+              <span>คำบรรยาย</span>
+            </button>
+            <button onclick="stopNarration()" class="stop-narration-btn flex items-center space-x-1" aria-label="หยุดคำบรรยาย">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M6 6h8v8H6z"/></svg>
+              <span>หยุด</span>
+            </button>
+          </div>
         </div>
       </div>
 
       <!-- กลองกันตรึม -->
-      <div class="instrument-card bg-white rounded-lg shadow-lg p-6" data-aos="fade-up" data-aos-duration="800">
+      <div class="instrument-card" data-aos="fade-up" data-aos-duration="800" data-aos-delay="800">
         <div class="relative">
-          <div class="model-container" data-model="Models/klongkantrum.glb">
-            <div class="absolute top-3 left-3 flex space-x-2">
-              <button onclick="toggleBackground(this)" class="bg-white p-2 rounded-full shadow" aria-label="เปลี่ยนสีพื้นหลัง">🌈</button>
-              <button onclick="resetCamera(this)" class="bg-white p-2 rounded-full shadow" aria-label="รีเซ็ตมุมมอง">🔄</button>
-            </div>
+          <div class="model-container" data-model="Models/klongkantrum.glb"></div>
+          <div class="absolute top-2 left-2 flex space-x-2">
+            <button onclick="toggleBackground(this)" class="bg-white p-1.5 rounded-full shadow" aria-label="เปลี่ยนสีพื้นหลัง">🌈</button>
+            <button onclick="resetCamera(this)" class="bg-white p-1.5 rounded-full shadow" aria-label="รีเซ็ตมุมมอง">🔄</button>
           </div>
-          <div class="absolute bottom-3 right-3 flex space-x-3">
-            <button onclick="playSound('klongkantrum')" class="play-btn text-white px-5 py-2.5 rounded-full flex items-center space-x-2" aria-label="เล่นเสียงกลองกันตรึม">
-              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M8 5v10l10-5L8 5z"/></svg>
-              <span>เล่นเสียง</span>
+          <div class="absolute bottom-2 right-2 flex space-x-2">
+            <button onclick="playSound('klongkantrum')" class="play-btn flex items-center space-x-1" aria-label="เล่นเสียงกลองกันตรึม">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M8 5v10l10-5L8 5z"/></svg>
+              <span>เล่น</span>
             </button>
-            <button onclick="stopSound()" class="stop-btn text-white px-5 py-2.5 rounded-full flex items-center space-x-2" aria-label="หยุดเสียง">
-              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M6 6h8v8H6z"/></svg>
-              <span>หยุดเสียง</span>
+            <button onclick="stopSound()" class="stop-btn flex items-center space-x-1" aria-label="หยุดเสียง">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M6 6h8v8H6z"/></svg>
+              <span>หยุด</span>
             </button>
           </div>
         </div>
-        <h2 class="text-2xl font-bold mt-5 text-[#A33F1F]">กลองกันตรึม</h2>
-        <p class="text-[#4B5EAA] mt-3 leading-relaxed">เป็นเครื่องหนังชนิดหนึ่งทำด้วยไม้ขุดกลวง ขึงหน้าด้านหนึ่งด้วยหนังดึงให้ตึงด้วยเชือก ใช้ตีประกอบจังหวะในวงกันตรึม</p>
-        <div class="mt-4 flex space-x-3">
-          <button onclick="playNarration('klongkantrum')" class="play-narration-btn text-white px-5 py-2.5 rounded-full flex items-center space-x-2" aria-label="เล่นคำบรรยายกลองกันตรึม">
-            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M8 5v10l10-5L8 5z"/></svg>
-            <span>เล่นคำบรรยาย</span>
-          </button>
-          <button onclick="stopNarration()" class="stop-narration-btn text-white px-5 py-2.5 rounded-full flex items-center space-x-2" aria-label="หยุดคำบรรยาย">
-            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M6 6h8v8H6z"/></svg>
-            <span>หยุดคำบรรยาย</span>
-          </button>
+        <div class="p-4">
+          <h2 class="text-base font-bold">กลองกันตรึม</h2>
+          <p class="mt-2 leading-relaxed">เป็นเครื่องหนังชนิดหนึ่งทำด้วยไม้ขุดกลวง ขึงหน้าด้านหนึ่งด้วยหนังดึงให้ตึงด้วยเชือก ใช้ตีประกอบจังหวะในวงกันตรึม</p>
+          <div class="mt-3 flex space-x-2">
+            <button onclick="playNarration('klongkantrum')" class="play-narration-btn flex items-center space-x-1" aria-label="เล่นคำบรรยายกลองกันตรึม">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M8 5v10l10-5L8 5z"/></svg>
+              <span>คำบรรยาย</span>
+            </button>
+            <button onclick="stopNarration()" class="stop-narration-btn flex items-center space-x-1" aria-label="หยุดคำบรรยาย">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M6 6h8v8H6z"/></svg>
+              <span>หยุด</span>
+            </button>
+          </div>
         </div>
       </div>
 
       <!-- ปี่ไสล -->
-      <div class="instrument-card bg-white rounded-lg shadow-lg p-6" data-aos="fade-up" data-aos-duration="800">
+      <div class="instrument-card" data-aos="fade-up" data-aos-duration="800" data-aos-delay="900">
         <div class="relative">
-          <div class="model-container" data-model="Models/pi_salai.glb">
-            <div class="absolute top-3 left-3 flex space-x-2">
-              <button onclick="toggleBackground(this)" class="bg-white p-2 rounded-full shadow" aria-label="เปลี่ยนสีพื้นหลัง">🌈</button>
-              <button onclick="resetCamera(this)" class="bg-white p-2 rounded-full shadow" aria-label="รีเซ็ตมุมมอง">🔄</button>
-            </div>
+          <div class="model-container" data-model="Models/pi_salai.glb"></div>
+          <div class="absolute top-2 left-2 flex space-x-2">
+            <button onclick="toggleBackground(this)" class="bg-white p-1.5 rounded-full shadow" aria-label="เปลี่ยนสีพื้นหลัง">🌈</button>
+            <button onclick="resetCamera(this)" class="bg-white p-1.5 rounded-full shadow" aria-label="รีเซ็ตมุมมอง">🔄</button>
           </div>
-          <div class="absolute bottom-3 right-3 flex space-x-3">
-            <button onclick="playSound('pi_salai')" class="play-btn text-white px-5 py-2.5 rounded-full flex items-center space-x-2" aria-label="เล่นเสียงปี่ไสล">
-              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M8 5v10l10-5L8 5z"/></svg>
-              <span>เล่นเสียง</span>
+          <div class="absolute bottom-2 right-2 flex space-x-2">
+            <button onclick="playSound('pi_salai')" class="play-btn flex items-center space-x-1" aria-label="เล่นเสียงปี่ไสล">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M8 5v10l10-5L8 5z"/></svg>
+              <span>เล่น</span>
             </button>
-            <button onclick="stopSound()" class="stop-btn text-white px-5 py-2.5 rounded-full flex items-center space-x-2" aria-label="หยุดเสียง">
-              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M6 6h8v8H6z"/></svg>
-              <span>หยุดเสียง</span>
+            <button onclick="stopSound()" class="stop-btn flex items-center space-x-1" aria-label="หยุดเสียง">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M6 6h8v8H6z"/></svg>
+              <span>หยุด</span>
             </button>
           </div>
         </div>
-        <h2 class="text-2xl font-bold mt-5 text-[#A33F1F]">ปี่ไสล</h2>
-        <p class="text-[#4B5EAA] mt-3 leading-relaxed">ใช้บรรเลงในวงกันตรึมเป็นปี่ประเภทลิ้นคู่เช่นเดียวกับปี่ใน</p>
-        <div class="mt-4 flex space-x-3">
-          <button onclick="playNarration('pi_salai')" class="play-narration-btn text-white px-5 py-2.5 rounded-full flex items-center space-x-2" aria-label="เล่นคำบรรยายปี่ไสล">
-            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M8 5v10l10-5L8 5z"/></svg>
-            <span>เล่นคำบรรยาย</span>
-          </button>
-          <button onclick="stopNarration()" class="stop-narration-btn text-white px-5 py-2.5 rounded-full flex items-center space-x-2" aria-label="หยุดคำบรรยาย">
-            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M6 6h8v8H6z"/></svg>
-            <span>หยุดคำบรรยาย</span>
-          </button>
+        <div class="p-4">
+          <h2 class="text-base font-bold">ปี่ไสล</h2>
+          <p class="mt-2 leading-relaxed">ใช้บรรเลงในวงกันตรึมเป็นปี่ประเภทลิ้นคู่เช่นเดียวกับปี่ใน</p>
+          <div class="mt-3 flex space-x-2">
+            <button onclick="playNarration('pi_salai')" class="play-narration-btn flex items-center space-x-1" aria-label="เล่นคำบรรยายปี่ไสล">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M8 5v10l10-5L8 5z"/></svg>
+              <span>คำบรรยาย</span>
+            </button>
+            <button onclick="stopNarration()" class="stop-narration-btn flex items-center space-x-1" aria-label="หยุดคำบรรยาย">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M6 6h8v8H6z"/></svg>
+              <span>หยุด</span>
+            </button>
+          </div>
         </div>
       </div>
 
       <!-- QR Code Card -->
-      <div class="instrument-card bg-white rounded-xl shadow-xl p-6 max-w-xs mx-auto transition-transform duration-300 hover:scale-105 hover:shadow-2xl" data-aos="fade-up" data-aos-duration="800">
-        <div class="relative w-full h-48 bg-gray-100 rounded-lg overflow-hidden flex items-center justify-center">
-          <img src="Qr/Models_3D.png" alt="QR Code to view 3D instrument model" class="w-32 h-32 object-contain" loading="lazy"/>
+      <div class="instrument-card" data-aos="fade-up" data-aos-duration="800" data-aos-delay="1000">
+        <div class="qr-placeholder">QR Code Placeholder</div>
+        <div class="p-4">
+          <h2 class="text-base font-bold">QR CODE</h2>
+          <p class="mt-2 leading-relaxed text-center">สแกนเพื่อชมเครื่องดนตรี</p>
         </div>
-        <h2 class="text-2xl font-bold mt-5 text-[#A33F1F] text-center">QR CODE</h2>
-        <p class="text-[#4B5EAA] mt-3 text-center font-medium">สแกนเพื่อชมเครื่องดนตรี</p>
       </div>
     </div>
   </main>
 
   <!-- Scroll to Top Button -->
   <button id="scrollTop" aria-label="กลับไปด้านบน">
-    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20"><path d="M10 15l-5-5h10l-5 5z"/></svg>
+    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M10 15l-5-5h10l-5 5z"/></svg>
   </button>
 
   <!-- Footer -->
-  <footer class="bg-[#A33F1F] text-white text-center py-6 mt-auto">
-    <p class="text-lg">© 2025 เครื่องดนตรีอีสาน. สร้างสรรค์เพื่ออนุรักษ์วัฒนธรรม.</p>
-    <p class="text-sm mt-2">อ้างอิงจาก กรมส่งเสริมวัฒนธรรม (สวธ.) กระทรวงวัฒนธรรม</p>
+  <footer class="text-white text-center py-4 mt-auto">
+    <p class="text-sm">© 2025 เครื่องดนตรีอีสาน. สร้างสรรค์เพื่ออนุรักษ์วัฒนธรรม.</p>
+    <p class="text-xs mt-1">อ้างอิงจาก กรมส่งเสริมวัฒนธรรม (สวธ.) กระทรวงวัฒนธรรม</p>
   </footer>
 
   <!-- JavaScript -->
@@ -636,6 +688,9 @@
     const toggleDarkMode = () => {
       document.documentElement.classList.toggle('dark');
       localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+      document.querySelectorAll('.model-container').forEach(container => {
+        container.scene.background.set(document.documentElement.classList.contains('dark') ? 0x1F2937 : 0xFAF9F6);
+      });
     };
     if (localStorage.getItem('theme') === 'dark') {
       document.documentElement.classList.add('dark');
@@ -645,7 +700,6 @@
     // Hamburger Menu Toggle
     const hamburger = document.getElementById('hamburger');
     const navMenu = document.getElementById('nav-menu');
-
     hamburger.addEventListener('click', () => {
       hamburger.classList.toggle('active');
       navMenu.classList.toggle('active');
@@ -674,7 +728,7 @@
     });
 
     // AOS Initialization
-    AOS.init();
+    AOS.init({ once: true, offset: 80 });
 
     // Scroll to Top
     const scrollTopBtn = document.getElementById('scrollTop');
@@ -757,7 +811,7 @@
     const containers = document.querySelectorAll('.model-container');
     containers.forEach(container => {
       const scene = new THREE.Scene();
-      scene.background = new THREE.Color(0xFAF9F6);
+      scene.background = new THREE.Color(document.documentElement.classList.contains('dark') ? 0x1F2937 : 0xFAF9F6);
       const camera = new THREE.PerspectiveCamera(75, container.clientWidth / container.clientHeight, 0.1, 1000);
       const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: false });
       renderer.setSize(container.clientWidth, container.clientHeight);

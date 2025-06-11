@@ -40,7 +40,7 @@
     }
     .inspiration-card h3 {
       color: #A33F1F;
-      font-size: 1.75rem;
+      font-size: 1.25rem;
       font-weight: 700;
     }
     .dark .inspiration-card h3 {
@@ -48,8 +48,8 @@
     }
     .inspiration-card p {
       color: #4B5EAA;
-      font-size: 1rem;
-      line-height: 1.6;
+      font-size: 0.85rem;
+      line-height: 1.5;
     }
     .dark .inspiration-card p {
       color: #D1D5DB;
@@ -59,8 +59,9 @@
       color: #FFFFFF;
       transition: background 0.3s ease, transform 0.2s ease;
       border-radius: 9999px;
-      padding: 0.75rem 2rem;
+      padding: 0.5rem 1.2rem;
       font-weight: 500;
+      font-size: 0.85rem;
     }
     .dark .view-btn {
       background: linear-gradient(to right, #EF6C00, #FF8C00);
@@ -75,7 +76,7 @@
       z-index: 50;
       background: linear-gradient(to bottom, #A33F1F, #7F2F17);
       color: #FFFFFF;
-      padding: 2rem 1rem;
+      padding: 1rem 0.5rem;
     }
     .dark header {
       background: linear-gradient(to bottom, #1F2937, #111827);
@@ -86,12 +87,13 @@
     #darkModeToggle {
       background: #FFFFFF;
       color: #A33F1F;
-      padding: 0.5rem 1.5rem;
+      padding: 0.3rem 1rem;
       border-radius: 9999px;
       font-weight: 500;
       display: flex;
       align-items: center;
       gap: 0.5rem;
+      font-size: 0.8rem;
     }
     .dark #darkModeToggle {
       background: #4B5563;
@@ -100,21 +102,21 @@
     #scrollTop {
       display: none;
       position: fixed;
-      bottom: 2rem;
-      right: 2rem;
+      bottom: 1rem;
+      right: 1rem;
       background: #A33F1F;
       color: #FFFFFF;
-      padding: 1rem;
+      padding: 0.5rem;
       border-radius: 50%;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
       transition: background 0.3s ease, transform 0.2s ease;
     }
-    .dark #scrollTop {
-      background: #EF6C00;
-    }
     #scrollTop:hover {
       background: #EF6C00;
       transform: translateY(-4px);
+    }
+    .dark #scrollTop {
+      background: #EF6C00;
     }
     .dark #scrollTop:hover {
       background: #FF8C00;
@@ -122,30 +124,30 @@
     footer {
       background: linear-gradient(to top, #A33F1F, #7F2F17);
       color: #FFFFFF;
-      padding: 2rem 1rem;
+      padding: 1.5rem 0.5rem;
     }
     .dark footer {
       background: linear-gradient(to top, #1F2937, #111827);
     }
-    /* Hamburger Menu Styles (Original) */
+    /* Hamburger Menu Styles */
     .hamburger {
-      position: absolute;
+      position: fixed;
       top: 1rem;
       right: 1rem;
       display: flex;
       flex-direction: column;
       justify-content: space-around;
-      width: 2rem;
-      height: 1.5rem;
+      width: 1.75rem;
+      height: 1.25rem;
       background: transparent;
       border: none;
       cursor: pointer;
       padding: 0;
-      z-index: 30;
+      z-index: 60;
     }
     .hamburger span {
       width: 100%;
-      height: 0.25rem;
+      height: 0.2rem;
       background: #FFFFFF;
       border-radius: 10px;
       transition: all 0.3s ease;
@@ -154,31 +156,33 @@
       background: #F9FAFB;
     }
     .hamburger.active span:nth-child(1) {
-      transform: translateY(11px) rotate(45deg);
+      transform: translateY(9px) rotate(45deg);
     }
     .hamburger.active span:nth-child(2) {
       opacity: 0;
     }
     .hamburger.active span:nth-child(3) {
-      transform: translateY(-11px) rotate(-45deg);
+      transform: translateY(-9px) rotate(-45deg);
     }
     .nav-menu {
       position: fixed;
       top: 0;
       right: 0;
-      width: 75%;
-      height: 100%;
+      width: 100%;
+      max-width: 300px;
+      height: 100vh;
       background: #A33F1F;
+      display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: flex-start;
-      padding: 4rem 1rem;
+      padding: 4rem 0.5rem;
       transform: translateX(100%);
       opacity: 0;
       visibility: hidden;
       transition: transform 0.3s ease, opacity 0.3s ease, visibility 0.3s ease;
       box-shadow: -4px 0 8px rgba(0, 0, 0, 0.2);
-      z-index: 20;
+      z-index: 50;
     }
     .nav-menu.active {
       transform: translateX(0);
@@ -191,7 +195,7 @@
     .nav-menu a {
       background: #FFFFFF;
       color: #A33F1F;
-      padding: 0.75rem 2rem;
+      padding: 0.5rem 1rem;
       border-radius: 9999px;
       font-weight: 500;
       text-decoration: none;
@@ -200,8 +204,9 @@
       margin: 0.5rem 0;
       transition: background 0.3s ease, color 0.3s ease, transform 0.2s ease;
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      font-size: 0.85rem;
     }
-    .nav-menu a:hover {
+    .nav-menu a:hover, .nav-menu a:focus {
       background: #EF6C00;
       color: #FFFFFF;
       transform: translateY(-2px);
@@ -210,59 +215,67 @@
       background: #4B5563;
       color: #F9FAFB;
     }
-    .dark .nav-menu a:hover {
+    .dark .nav-menu a:hover, .dark .nav-menu a:focus {
       background: #FF8C00;
       color: #FFFFFF;
-    }
-    @media (max-width: 640px) {
-      .inspiration-card {
-        max-width: 100%;
-        padding: 1.5rem;
-      }
-      .text-2xl {
-        font-size: 1.25rem;
-      }
-      .text-lg {
-        font-size: 0.875rem;
-      }
-      .hamburger {
-        width: 2rem;
-        height: 1.5rem;
-      }
-    }
-    @media (min-width: 641px) and (max-width: 1024px) {
-      .inspiration-card {
-        max-width: 95%;
-      }
-      .nav-menu a {
-        padding: 0.5rem 1.5rem;
-        width: 180px;
-      }
     }
     .icon-placeholder {
       background: linear-gradient(to right, #A33F1F, #EF6C00);
       width: 100%;
-      height: 8rem;
+      height: 6rem;
       display: flex;
       align-items: center;
       justify-content: center;
       color: #FFFFFF;
-      font-size: 2rem;
+      font-size: 1.25rem;
       font-weight: 700;
       border-radius: 12px 12px 0 0;
     }
     .dark .icon-placeholder {
       background: linear-gradient(to right, #EF6C00, #FF8C00);
     }
+    /* Media Queries for Minor Adjustments */
+    @media (min-width: 641px) {
+      .container {
+        max-width: 640px;
+      }
+      header h1 {
+        font-size: 2rem;
+      }
+      header p {
+        font-size: 0.95rem;
+      }
+      .inspiration-card {
+        padding: 1rem;
+      }
+      .inspiration-card h3 {
+        font-size: 1.3rem;
+      }
+      .inspiration-card p {
+        font-size: 0.9rem;
+      }
+      .view-btn {
+        padding: 0.5rem 1.5rem;
+        font-size: 0.9rem;
+      }
+      #darkModeToggle {
+        padding: 0.4rem 1.2rem;
+        font-size: 0.85rem;
+      }
+      .icon-placeholder {
+        height: 6.5rem;
+        font-size: 1.3rem;
+      }
+    }
   </style>
 </head>
 <body class="min-h-screen flex flex-col">
   <!-- Header -->
   <header class="text-white text-center shadow-lg relative" data-aos="fade-down">
-    <h1 class="text-4xl sm:text-5xl font-bold pt-6">แรงบันดาลใจ</h1>
-    <p class="mt-2 text-lg sm:text-xl">ค้นพบเรื่องราวและมรดกทางวัฒนธรรมที่จุดประกายความสร้างสรรค์</p>
-    <button id="darkModeToggle" class="mt-4 px-4 py-2 rounded-full flex items-center mx-auto" aria-label="สลับโหมดมืด/สว่าง">
-      <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/></svg>
+    <h1 class="text-2xl font-bold pt-4">แรงบันดาลใจ</h1>
+    <p class="mt-1 text-sm">ค้นพบเรื่องราวและมรดกทางวัฒนธรรมที่จุดประกายความสร้างสรรค์</p>
+    <button id="darkModeToggle" class="mt-3 px-4 py-1 rounded-full flex items-center mx-auto" aria-label="สลับโหมดมืด/สว่าง">
+      <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/></svg>
       <span>สลับโหมด</span>
     </button>
     <button class="hamburger" id="hamburger" aria-label="เปิด/ปิดเมนู" aria-expanded="false">
@@ -278,52 +291,50 @@
   </header>
 
   <!-- Main Content -->
-  <main class="container mx-auto px-4 sm:px-6 py-12">
-    <h2 class="text-3xl sm:text-4xl font-bold text-center text-[#A33F1F] mb-10 dark:text-[#FBBF24]" data-aos="fade-up">Inspiration</h2>
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+  <main class="container mx-auto px-4 py-6">
+    <h2 class="text-xl font-bold text-center text-[#A33F1F] mb-6 dark:text-[#FBBF24]" data-aos="fade-up">แรงบันดาลใจ</h2>
+    <div class="grid grid-cols-1 gap-6">
       <!-- Inspiration Card 1 -->
       <div class="inspiration-card" data-aos="fade-up" data-aos-duration="800">
         <div class="icon-placeholder">MODELS 3D</div>
-        <div class="p-6">
-          <h3 class="text-xl font-bold">Website Models 3D</h3>
-          <p class="mt-3 leading-relaxed">สำรวจโมเดล 3มิติ</p>
-          <a href="https://jayrmeansun.github.io/Music-Esan-Culture/interactive.html" target="_blank" class="view-btn inline-block mt-5" aria-label="ดูเว็บไซต์">ดูเรื่องราว</a>
+        <div class="p-4">
+          <h3 class="text-base font-bold">Website Models 3D</h3>
+          <p class="mt-2 leading-relaxed">สำรวจโมเดล 3มิติ</p>
+          <a href="https://jayrmeansun.github.io/Music-Esan-Culture/interactive.html" target="_blank" class="view-btn inline-block mt-3" aria-label="ดูเว็บไซต์">ดูเรื่องราว</a>
         </div>
       </div>
 
       <!-- Inspiration Card 2 -->
       <div class="inspiration-card" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
         <div class="icon-placeholder">ภาพ AI</div>
-        <div class="p-6">
-          <h3 class="text-xl font-bold">การสร้างภาพ AI</h3>
-          <p class="mt-3 leading-relaxed">การสร้างภาพประกอบนิทรรศการด้วย Generative Ai</p>
-          <a href="https://www.canva.com/design/DAF22222222/view" target="_blank" class="view-btn inline-block mt-5" aria-label="ดูมรดกของแคน">ดูเรื่องราว</a>
+        <div class="p-4">
+          <h3 class="text-base font-bold">การสร้างภาพ AI</h3>
+          <p class="mt-2 leading-relaxed">การสร้างภาพประกอบนิทรรศการด้วย Generative AI</p>
+          <a href="https://www.canva.com/design/DAF22222222/view" target="_blank" class="view-btn inline-block mt-3" aria-label="ดูภาพ AI">ดูเรื่องราว</a>
         </div>
       </div>
 
       <!-- Inspiration Card 3 -->
-      <div class="inspiration-card" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
+      <div class="inspiration-card" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
         <div class="icon-placeholder">เพลง AI</div>
-        <div class="p-6">
-          <h3 class="text-xl font-bold">การสร้างเพลง AI</h3>
-          <p class="mt-3 leading-relaxed">การสร้างเพลงประกอบนิทรรศการด้วย Generative Ai</p>
-          <a href="https://www.canva.com/design/DAF22222222/view" target="_blank" class="view-btn inline-block mt-5" aria-label="ดูมรดกของแคน">ดูเรื่องราว</a>
+        <div class="p-4">
+          <h3 class="text-base font-bold">การสร้างเพลง AI</h3>
+          <p class="mt-2 leading-relaxed">การสร้างเพลงประกอบนิทรรศการด้วย Generative AI</p>
+          <a href="https://www.canva.com/design/DAF22222222/view" target="_blank" class="view-btn inline-block mt-3" aria-label="ดูเพลง AI">ดูเรื่องราว</a>
         </div>
       </div>
-     
-
-      
+    </div>
   </main>
 
   <!-- Scroll to Top Button -->
   <button id="scrollTop" aria-label="กลับไปด้านบน">
-    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20"><path d="M10 15l-5-5h10l-5 5z"/></svg>
+    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M10 15l-5-5h10l-5 5z"/></svg>
   </button>
 
   <!-- Footer -->
-  <footer class="text-white text-center py-6 mt-auto">
-    <p class="text-lg">© 2025 เครื่องดนตรีอีสาน. สร้างสรรค์เพื่ออนุรักษ์วัฒนธรรม.</p>
-    <p class="text-sm mt-2">อ้างอิงจาก กรมส่งเสริมวัฒนธรรม (สวธ.) กระทรวงวัฒนธรรม</p>
+  <footer class="text-white text-center py-4 mt-auto">
+    <p class="text-sm">© 2025 เครื่องดนตรีอีสาน. สร้างสรรค์เพื่ออนุรักษ์วัฒนธรรม.</p>
+    <p class="text-xs mt-1">อ้างอิงจาก กรมส่งเสริมวัฒนธรรม (สวธ.) กระทรวงวัฒนธรรม</p>
   </footer>
 
   <!-- JavaScript -->
@@ -369,7 +380,7 @@
     });
 
     // AOS Initialization
-    AOS.init({ once: true, offset: 100 });
+    AOS.init({ once: true, offset: 80 });
 
     // Scroll to Top
     const scrollTopBtn = document.getElementById('scrollTop');
