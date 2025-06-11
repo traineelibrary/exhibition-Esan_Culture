@@ -22,28 +22,34 @@
     .project-card {
       transition: transform 0.3s ease, box-shadow 0.3s ease;
       background: linear-gradient(145deg, #FFFFFF, #F8FAFC);
-      border-radius: 12px;
+      border-radius: 16px;
       overflow: hidden;
       width: 100%;
-      max-width: 400px;
+      max-width: 450px;
       margin: 0 auto;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+      border: 1px solid #E5E7EB;
     }
     .dark .project-card {
       background: linear-gradient(145deg, #374151, #4B5563);
+      border: 1px solid #4B5563;
     }
     .project-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      transform: translateY(-8px);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.25);
     }
     .project-card h3 {
       color: #A33F1F;
+      font-size: 1.75rem;
+      font-weight: 700;
     }
     .dark .project-card h3 {
-      color: #F9FAFB;
+      color: #FBBF24;
     }
     .project-card p {
       color: #4B5EAA;
+      font-size: 1rem;
+      line-height: 1.6;
     }
     .dark .project-card p {
       color: #D1D5DB;
@@ -52,6 +58,9 @@
       background: linear-gradient(to right, #2E7D32, #4CAF50);
       color: #FFFFFF;
       transition: background 0.3s ease, transform 0.2s ease;
+      border-radius: 9999px;
+      padding: 0.75rem 2rem;
+      font-weight: 500;
     }
     .dark .view-btn {
       background: linear-gradient(to right, #EF6C00, #FF8C00);
@@ -63,12 +72,13 @@
     header {
       position: sticky;
       top: 0;
-      z-index: 10;
-      background: #A33F1F;
+      z-index: 50;
+      background: linear-gradient(to bottom, #A33F1F, #7F2F17);
       color: #FFFFFF;
+      padding: 2rem 1rem;
     }
     .dark header {
-      background: #1F2937;
+      background: linear-gradient(to bottom, #1F2937, #111827);
     }
     header h1, header p {
       color: #FFFFFF;
@@ -76,6 +86,12 @@
     #darkModeToggle {
       background: #FFFFFF;
       color: #A33F1F;
+      padding: 0.5rem 1.5rem;
+      border-radius: 9999px;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
     }
     .dark #darkModeToggle {
       background: #4B5563;
@@ -84,18 +100,18 @@
     #scrollTop {
       display: none;
       position: fixed;
-      bottom: 1.5rem;
-      right: 1.5rem;
+      bottom: 2rem;
+      right: 2rem;
       background: #A33F1F;
       color: #FFFFFF;
-      padding: 0.75rem;
+      padding: 1rem;
       border-radius: 50%;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
       transition: background 0.3s ease, transform 0.2s ease;
     }
     #scrollTop:hover {
       background: #EF6C00;
-      transform: translateY(-2px);
+      transform: translateY(-4px);
     }
     .dark #scrollTop {
       background: #EF6C00;
@@ -104,13 +120,14 @@
       background: #FF8C00;
     }
     footer {
-      background: #A33F1F;
+      background: linear-gradient(to top, #A33F1F, #7F2F17);
       color: #FFFFFF;
+      padding: 2rem 1rem;
     }
     .dark footer {
-      background: #1F2937;
+      background: linear-gradient(to top, #1F2937, #111827);
     }
-    /* Hamburger Menu Styles */
+    /* Hamburger Menu Styles (Original) */
     .hamburger {
       position: absolute;
       top: 1rem;
@@ -200,32 +217,51 @@
     @media (max-width: 640px) {
       .project-card {
         max-width: 100%;
-        padding: 1rem;
+        padding: 1.5rem;
       }
       .text-2xl {
-        font-size: 1.5rem;
+        font-size: 1.25rem;
       }
       .text-lg {
-        font-size: 1rem;
+        font-size: 0.875rem;
+      }
+      .hamburger {
+        width: 2rem;
+        height: 1.5rem;
       }
     }
     @media (min-width: 641px) and (max-width: 1024px) {
       .project-card {
-        max-width: 90%;
+        max-width: 95%;
       }
       .nav-menu a {
         padding: 0.5rem 1.5rem;
         width: 180px;
       }
     }
+    .icon-placeholder {
+      background: linear-gradient(to right, #A33F1F, #EF6C00);
+      width: 100%;
+      height: 8rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #FFFFFF;
+      font-size: 2rem;
+      font-weight: 700;
+      border-radius: 12px 12px 0 0;
+    }
+    .dark .icon-placeholder {
+      background: linear-gradient(to right, #EF6C00, #FF8C00);
+    }
   </style>
 </head>
 <body class="min-h-screen flex flex-col">
   <!-- Header -->
-  <header class="bg-[#A33F1F] text-white py-8 text-center shadow-lg relative" data-aos="fade-in">
-    <h1 class="text-5xl font-bold">นวัตกรรม</h1>
-    <p class="mt-3 text-xl">สำรวจผลงานสร้างสรรค์และนวัตกรรมที่ต่อยอดวัฒนธรรม</p>
-    <button id="darkModeToggle" class="mt-4 bg-white text-[#A33F1F] px-4 py-2 rounded-full flex items-center mx-auto" aria-label="สลับโหมดมืด/สว่าง">
+  <header class="text-white text-center shadow-lg relative" data-aos="fade-down">
+    <h1 class="text-4xl sm:text-5xl font-bold pt-6">นวัตกรรม</h1>
+    <p class="mt-2 text-lg sm:text-xl">สำรวจผลงานสร้างสรรค์และนวัตกรรมที่ต่อยอดวัฒนธรรม</p>
+    <button id="darkModeToggle" class="mt-4 px-4 py-2 rounded-full flex items-center mx-auto" aria-label="สลับโหมดมืด/สว่าง">
       <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/></svg>
       <span>สลับโหมด</span>
     </button>
@@ -235,41 +271,36 @@
       <span></span>
     </button>
     <nav class="nav-menu" id="nav-menu">
-      <a href="index.html" aria-label="ไปยังหน้าหลัก">หน้าหลัก</a>
+      <a href="index.html" aria-label="ไปยังหน้าหลัก"> หน้าหลัก</a>
       <a href="inspiration.html" aria-label="ไปยังหน้าแรงบันดาลใจ">แรงบันดาลใจ</a>
       <a href="insovation.html" aria-label="ไปยังหน้านวัตกรรม">นวัตกรรม</a>
-
     </nav>
   </header>
 
   <!-- Main Content -->
-  <main class="container mx-auto px-6 py-12">
-    <h2 class="text-3xl font-bold text-center text-[#A33F1F] mb-8" data-aos="fade-up">Insovation</h2>
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+  <main class="container mx-auto px-4 sm:px-6 py-12">
+    <h2 class="text-3xl sm:text-4xl font-bold text-center text-[#A33F1F] mb-10 dark:text-[#FBBF24]" data-aos="fade-up">Insovation</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
       <!-- Project Card 1 -->
       <div class="project-card" data-aos="fade-up" data-aos-duration="800">
-        <div class="relative w-full h-48 overflow-hidden">
-          <img src="https://kku-creative.my.canva.site/isan-musical-instruments" alt="ความเป็นมาทั้งหมด" class="w-full h-full object-cover" loading="lazy"/>
-        </div>
+        <div class="icon-placeholder">ความเป็นมา</div>
         <div class="p-6">
-          <h3 class="text-xl font-bold text-[#A33F1F]">ความเป็นมาทั้งหมด</h3>
-          <p class="text-[#4B5EAA] mt-2 leading-relaxed">ประวัติความเป็นมา การผลิต ประเภท ประเพณีวัฒนธรรม เครื่องแต่งกาย</p>
-          <a href="https://kku-creative.my.canva.site/isan-musical-instruments" target="_blank" class="view-btn inline-block mt-4 px-5 py-2.5 rounded-full text-white font-medium" aria-label="ดูผลงานออกแบบเครื่องดนตรี 3D">ดูผลงาน</a>
+          <h3 class="text-xl font-bold">ความเป็นมาทั้งหมด</h3>
+          <p class="mt-3 leading-relaxed">ประวัติความเป็นมา การผลิต ประเภท ประเพณีวัฒนธรรม และเครื่องแต่งกายของเครื่องดนตรีอีสาน</p>
+          <a href="https://kku-creative.my.canva.site/isan-musical-instruments" target="_blank" class="view-btn inline-block mt-5" aria-label="ดูผลงานออกแบบเครื่องดนตรี 3D">ดูผลงาน</a>
         </div>
       </div>
 
       <!-- Project Card 2 -->
       <div class="project-card" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
-        <div class="relative w-full h-48 overflow-hidden">
-          <img src="https://via.placeholder.com/400x200?text=Canva+Project+2" alt="สินไซ" class="w-full h-full object-cover" loading="lazy"/>
-        </div>
+        <div class="icon-placeholder">สินไซ</div>
         <div class="p-6">
-          <h3 class="text-xl font-bold text-[#A33F1F]">ประวัติสินไซ</h3>
-          <p class="text-[#4B5EAA] mt-2 leading-relaxed">ประวัติความเป็นมาสินไซ</p>
-          <a href="https://kku-creative.my.canva.site/dagpxzyw2ec" target="_blank" class="view-btn inline-block mt-4 px-5 py-2.5 rounded-full text-white font-medium" aria-label="ดูผลงานโปสเตอร์นวัตกรรม">ดูผลงาน</a>
+          <h3 class="text-xl font-bold">ประวัติสินไซ</h3>
+          <p class="mt-3 leading-relaxed">เรื่องราวและประวัติความเป็นมาของวรรณคดีอีสาน "สินไซ"</p>
+          <a href="https://kku-creative.my.canva.site/dagpxzyw2ec" target="_blank" class="view-btn inline-block mt-5" aria-label="ดูผลงานโปสเตอร์นวัตกรรม">ดูผลงาน</a>
         </div>
       </div>
-
+    </div>
   </main>
 
   <!-- Scroll to Top Button -->
@@ -278,7 +309,7 @@
   </button>
 
   <!-- Footer -->
-  <footer class="bg-[#A33F1F] text-white text-center py-6 mt-auto">
+  <footer class="text-white text-center py-6 mt-auto">
     <p class="text-lg">© 2025 เครื่องดนตรีอีสาน. สร้างสรรค์เพื่ออนุรักษ์วัฒนธรรม.</p>
     <p class="text-sm mt-2">อ้างอิงจาก กรมส่งเสริมวัฒนธรรม (สวธ.) กระทรวงวัฒนธรรม</p>
   </footer>
@@ -298,7 +329,6 @@
     // Hamburger Menu Toggle
     const hamburger = document.getElementById('hamburger');
     const navMenu = document.getElementById('nav-menu');
-
     hamburger.addEventListener('click', () => {
       hamburger.classList.toggle('active');
       navMenu.classList.toggle('active');
@@ -327,7 +357,7 @@
     });
 
     // AOS Initialization
-    AOS.init();
+    AOS.init({ once: true, offset: 100 });
 
     // Scroll to Top
     const scrollTopBtn = document.getElementById('scrollTop');
