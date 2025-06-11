@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="th" class="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>แรงบันดาลใจ - เครื่องดนตรีอีสาน</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+Thai:wght@400;700&display=swap');
+    body {
+      background-color: #FAF9F6;
+      font-family: 'Noto Serif Thai', sans-serif;
+      color: #333333;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+    .dark body {
+      background-color: #1F2937;
+      color: #F9FAFB;
+    }
+    .inspiration-card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      background: linear-gradient(145deg, #FFFFFF, #F8FAFC);
+      border-radius: 12px;
+      overflow: hidden;
+      width: 100%;
+      max-width: 400px;
+      margin: 0 auto;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    .dark .inspiration-card {
+      background: linear-gradient(145deg, #374151, #4B5563);
+    }
+    .inspiration-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+    .inspiration-card h3 {
+      color: #A33F1F;
+    }
+    .dark .inspiration-card h3 {
+      color: #F9FAFB;
+    }
+    .inspiration-card p {
+      color: #4B5EAA;
+    }
+    .dark .inspiration-card p {
+      color: #D1D5DB;
+    }
+    .view-btn {
+      background: linear-gradient(to right, #2E7D32, #4CAF50);
+      color: #FFFFFF;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+    .dark .view-btn {
+      background: linear-gradient(to right, #EF6C00, #FF8C00);
+    }
+    .view-btn:hover {
+      background: linear-gradient(to right, #EF6C00, #FF8C00);
+      transform: translateY(-2px);
+    }
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: #A33F1F;
+      color: #FFFFFF;
+    }
+    .dark header {
+      background: #1F2937;
+    }
+    header h1, header p {
+      color: #FFFFFF;
+    }
+    #darkModeToggle {
+      background: #FFFFFF;
+      color: #A33F1F;
+    }
+    .dark #darkModeToggle {
+      background: #4B5563;
+      color: #F9FAFB;
+    }
+    #scrollTop {
+      display: none;
+      position: fixed;
+      bottom: 1.5rem;
+      right: 1.5rem;
+      background: #A33F1F;
+      color: #FFFFFF;
+      padding: 0.75rem;
+      border-radius: 50%;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+    #scrollTop:hover {
+      background: #EF6C00;
+      transform: translateY(-2px);
+    }
+    .dark #scrollTop {
+      background: #EF6C00;
+    }
+    .dark #scrollTop:hover {
+      background: #FF8C00;
+    }
+    footer {
+      background: #A33F1F;
+      color: #FFFFFF;
+    }
+    .dark footer {
+      background: #1F2937;
+    }
+    /* Hamburger Menu Styles */
+    .hamburger {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      width: 2rem;
+      height: 1.5rem;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      z-index: 30;
+    }
+    .hamburger span {
+      width: 100%;
+      height: 0.25rem;
+      background: #FFFFFF;
+      border-radius: 10px;
+      transition: all 0.3s ease;
+    }
+    .dark .hamburger span {
+      background: #F9FAFB;
+    }
+    .hamburger.active span:nth-child(1) {
+      transform: translateY(11px) rotate(45deg);
+    }
+    .hamburger.active span:nth-child(2) {
+      opacity: 0;
+    }
+    .hamburger.active span:nth-child(3) {
+      transform: translateY(-11px) rotate(-45deg);
+    }
+    .nav-menu {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 75%;
+      height: 100%;
+      background: #A33F1F;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 4rem 1rem;
+      transform: translateX(100%);
+      opacity: 0;
+      visibility: hidden;
+      transition: transform 0.3s ease, opacity 0.3s ease, visibility 0.3s ease;
+      box-shadow: -4px 0 8px rgba(0, 0, 0, 0.2);
+      z-index: 20;
+    }
+    .nav-menu.active {
+      transform: translateX(0);
+      opacity: 1;
+      visibility: visible;
+    }
+    .dark .nav-menu {
+      background: #1F2937;
+    }
+    .nav-menu a {
+      background: #FFFFFF;
+      color: #A33F1F;
+      padding: 0.75rem 2rem;
+      border-radius: 9999px;
+      font-weight: 500;
+      text-decoration: none;
+      width: 90%;
+      text-align: center;
+      margin: 0.5rem 0;
+      transition: background 0.3s ease, color 0.3s ease, transform 0.2s ease;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    .nav-menu a:hover {
+      background: #EF6C00;
+      color: #FFFFFF;
+      transform: translateY(-2px);
+    }
+    .dark .nav-menu a {
+      background: #4B5563;
+      color: #F9FAFB;
+    }
+    .dark .nav-menu a:hover {
+      background: #FF8C00;
+      color: #FFFFFF;
+    }
+    @media (max-width: 640px) {
+      .inspiration-card {
+        max-width: 100%;
+        padding: 1rem;
+      }
+      .text-2xl {
+        font-size: 1.5rem;
+      }
+      .text-lg {
+        font-size: 1rem;
+      }
+    }
+    @media (min-width: 641px) and (max-width: 1024px) {
+      .inspiration-card {
+        max-width: 90%;
+      }
+      .nav-menu a {
+        padding: 0.5rem 1.5rem;
+        width: 180px;
+      }
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+  <!-- Header -->
+  <header class="bg-[#A33F1F] text-white py-8 text-center shadow-lg relative" data-aos="fade-in">
+    <h1 class="text-5xl font-bold">แรงบันดาลใจ</h1>
+    <p class="mt-3 text-xl">ค้นพบเรื่องราวและมรดกทางวัฒนธรรมที่จุดประกายความสร้างสรรค์</p>
+    <button id="darkModeToggle" class="mt-4 bg-white text-[#A33F1F] px-4 py-2 rounded-full flex items-center mx-auto" aria-label="สลับโหมดมืด/สว่าง">
+      <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/></svg>
+      <span>สลับโหมด</span>
+    </button>
+    <button class="hamburger" id="hamburger" aria-label="เปิด/ปิดเมนู" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <nav class="nav-menu" id="nav-menu">
+      <a href="index.html" aria-label="ไปยังหน้าหลัก">หน้าหลัก</a>
+      <a href="inspiration.html" aria-label="ไปยังหน้าแรงบันดาลใจ">แรงบันดาลใจ</a>
+      <a href="insovation.html" aria-label="ไปยังหน้านวัตกรรม">นวัตกรรม</a>
+
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <main class="container mx-auto px-6 py-12">
+    <h2 class="text-3xl font-bold text-center text-[#A33F1F] mb-8" data-aos="fade-up">Inspiration</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      <!-- Inspiration Card 1 -->
+      <div class="inspiration-card" data-aos="fade-up" data-aos-duration="800">
+        <div class="relative w-full h-48 overflow-hidden">
+          <img src="https://via.placeholder.com/400x200?text=Inspiration+1" alt="แรงบันดาลใจจากพิณ" class="w-full h-full object-cover" loading="lazy"/>
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-[#A33F1F]">เรื่องราวของพิณ</h3>
+          <p class="text-[#4B5EAA] mt-2 leading-relaxed">สำรวจประวัติและความสำคัญของพิณในวัฒนธรรมอีสานผ่านสื่อภาพและเสียง</p>
+          <a href="https://www.canva.com/design/DAF11111111/view" target="_blank" class="view-btn inline-block mt-4 px-5 py-2.5 rounded-full text-white font-medium" aria-label="ดูเรื่องราวของพิณ">ดูเรื่องราว</a>
+        </div>
+      </div>
+
+      <!-- Inspiration Card 2 -->
+      <div class="inspiration-card" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
+        <div class="relative w-full h-48 overflow-hidden">
+          <img src="https://via.placeholder.com/400x200?text=Inspiration+2" alt="แรงบันดาลใจจากแคน" class="w-full h-full object-cover" loading="lazy"/>
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-[#A33F1F]">มรดกของแคน</h3>
+          <p class="text-[#4B5EAA] mt-2 leading-relaxed">เรียนรู้การเดินทางของแคน เครื่องดนตรีที่เป็นสัญลักษณ์ของอีสาน</p>
+          <a href="https://www.canva.com/design/DAF22222222/view" target="_blank" class="view-btn inline-block mt-4 px-5 py-2.5 rounded-full text-white font-medium" aria-label="ดูมรดกของแคน">ดูเรื่องราว</a>
+        </div>
+      </div>
+
+      <!-- Inspiration Card 3 -->
+      <div class="inspiration-card" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
+        <div class="relative w-full h-48 overflow-hidden">
+          <img src="https://via.placeholder.com/400x200?text=Inspiration+3" alt="วัฒนธรรมการแสดงหมอลำ" class="w-full h-full object-cover" loading="lazy"/>
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-[#A33F1F]">หมอลำและเครื่องดนตรี</h3>
+          <p class="text-[#4B5EAA] mt-2 leading-relaxed">ค้นพบความสัมพันธ์ระหว่างหมอลำและเครื่องดนตรีอีสานในงานศิลปะ</p>
+          <a href="https://www.canva.com/design/DAF33333333/view" target="_blank" class="view-btn inline-block mt-4 px-5 py-2.5 rounded-full text-white font-medium" aria-label="ดูเรื่องราวหมอลำและเครื่องดนตรี">ดูเรื่องราว</a>
+        </div>
+      </div>
+
+      <!-- Inspiration Card 4 -->
+      <div class="inspiration-card" data-aos="fade-up" data-aos-duration="800" data-aos-delay="300">
+        <div class="relative w-full h-48 overflow-hidden">
+          <img src="https://via.placeholder.com/400x200?text=Inspiration+4" alt="งานฝีมือท้องถิ่น" class="w-full h-full object-cover" loading="lazy"/>
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-[#A33F1F]">งานฝีมือเครื่องดนตรี</h3>
+          <p class="text-[#4B5EAA] mt-2 leading-relaxed">สำรวจกระบวนการสร้างเครื่องดนตรีอีสานด้วยมือแบบดั้งเดิม</p>
+          <a href="https://www.canva.com/design/DAF44444444/view" target="_blank" class="view-btn inline-block mt-4 px-5 py-2.5 rounded-full text-white font-medium" aria-label="ดูเรื่องราวงานฝีมือเครื่องดนตรี">ดูเรื่องราว</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Scroll to Top Button -->
+  <button id="scrollTop" aria-label="กลับไปด้านบน">
+    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20"><path d="M10 15l-5-5h10l-5 5z"/></svg>
+  </button>
+
+  <!-- Footer -->
+  <footer class="bg-[#A33F1F] text-white text-center py-6 mt-auto">
+    <p class="text-lg">© 2025 เครื่องดนตรีอีสาน. สร้างสรรค์เพื่ออนุรักษ์วัฒนธรรม.</p>
+    <p class="text-sm mt-2">อ้างอิงจาก กรมส่งเสริมวัฒนธรรม (สวธ.) กระทรวงวัฒนธรรม</p>
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    // Dark Mode Toggle
+    const toggleDarkMode = () => {
+      document.documentElement.classList.toggle('dark');
+      localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+    };
+    if (localStorage.getItem('theme') === 'dark') {
+      document.documentElement.classList.add('dark');
+    }
+    document.getElementById('darkModeToggle').addEventListener('click', toggleDarkMode);
+
+    // Hamburger Menu Toggle
+    const hamburger = document.getElementById('hamburger');
+    const navMenu = document.getElementById('nav-menu');
+
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('active');
+      navMenu.classList.toggle('active');
+      const isExpanded = hamburger.getAttribute('aria-expanded') === 'true';
+      hamburger.setAttribute('aria-expanded', !isExpanded);
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener('click', (event) => {
+      const isClickInsideMenu = navMenu.contains(event.target);
+      const isClickOnHamburger = hamburger.contains(event.target);
+      if (!isClickInsideMenu && !isClickOnHamburger && navMenu.classList.contains('active')) {
+        hamburger.classList.remove('active');
+        navMenu.classList.remove('active');
+        hamburger.setAttribute('aria-expanded', 'false');
+      }
+    });
+
+    // Close menu when a link is clicked
+    document.querySelectorAll('.nav-menu a').forEach(link => {
+      link.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        navMenu.classList.remove('active');
+        hamburger.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    // AOS Initialization
+    AOS.init();
+
+    // Scroll to Top
+    const scrollTopBtn = document.getElementById('scrollTop');
+    window.addEventListener('scroll', () => {
+      scrollTopBtn.style.display = window.scrollY > 300 ? 'block' : 'none';
+    });
+    scrollTopBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  </script>
+</body>
+</html>
