@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <title>เพลง AI</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: 'Prompt', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: #f9f9f9; /* สีขาวครีมอ่อน สะอาดตา */
+            color: #333;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        .music-container {
+            max-width: 800px;
+            width: 100%;
+            background: #ffffff; /* สีขาวบริสุทธิ์ */
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* เงาอ่อนๆ */
+            text-align: center;
+        }
+        h1 {
+            font-size: clamp(1.8em, 5vw, 2.5em);
+            margin-bottom: 20px;
+            color: #2c3e50; /* สีน้ำเงินเข้ม */
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        .track {
+            margin: 20px 0;
+            padding: 15px;
+            background: #f0f2f5; /* สีเทาอ่อนสำหรับแทร็ก */
+            border-radius: 10px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .track:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        .track audio {
+            width: 100%;
+            outline: none;
+            margin-top: 10px;
+        }
+        .track h3 {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+            color: #34495e; /* สีน้ำเงินเข้มอ่อน */
+        }
+        button {
+            background: #3498db; /* สีน้ำเงินอ่อน */
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            color: #fff;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        button:hover {
+            background: #2980b9; /* สีน้ำเงินเข้มขึ้นเมื่อ hover */
+        }
+        @media (max-width: 768px) {
+            .music-container {
+                padding: 20px;
+            }
+            .track h3 {
+                font-size: 1em;
+            }
+            button {
+                padding: 8px 16px;
+            }
+        }
+        @media (max-width: 480px) {
+            h1 {
+                font-size: clamp(1.5em, 4vw, 1.8em);
+            }
+            .track {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="music-container">
+        <h1>เพลง AI</h1>
+        <div class="track">
+            <h3>เพลง 1: การสร้างเพลงด้วย AI </h3>
+            <audio controls>
+                <source src="Sound/Music_ai/song1.mp3" type="audio/mp3">
+                เบราว์เซอร์ไม่รองรับไฟล์เสียงนี้
+            </audio>
+        </div>
+        <div class="track">
+            <h3>เพลง 2: การสร้างเพลงด้วย AI</h3>
+            <audio controls>
+                <source src="Sound/Music_ai/song2.mp3" type="audio/mp3">
+                เบราว์เซอร์ไม่รองรับไฟล์เสียงนี้
+            </audio>
+        </div>
+        <div class="track">
+            <h3>เพลง 3: การสร้างเพลงด้วย AI </h3>
+            <audio controls>
+                <source src="Sound/Music_ai/song3.mp3" type="audio/mp3">
+                เบราว์เซอร์ไม่รองรับไฟล์เสียงนี้
+            </audio>
+        </div>
+        <div class="track">
+            <h3>เพลง 4: การสร้างเพลงด้วย AI </h3>
+            <audio controls>
+                <source src="Sound/Music_ai/song4.mp3" type="audio/mp3">
+                เบราว์เซอร์ไม่รองรับไฟล์เสียงนี้
+            </audio>
+        </div>
+    </div>
+</body>
+</html>

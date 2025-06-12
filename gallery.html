@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <title>แกลลอรีภาพและวิดีโอ</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Prompt', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+            line-height: 1.6;
+        }
+        .gallery-container {
+            max-width: 1400px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+        .section-title {
+            text-align: center;
+            font-size: clamp(1.5em, 4vw, 2em);
+            margin-bottom: 20px;
+            color: #2c3e50;
+            border-bottom: 2px solid #2c3e50;
+            padding-bottom: 10px;
+            width: fit-content;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-bottom: 40px;
+        }
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            aspect-ratio: 4 / 3;
+        }
+        .gallery-item img, .gallery-item video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+        .gallery-item:hover img, .gallery-item:hover video {
+            transform: scale(1.05);
+        }
+        .gallery-item::after {
+            content: attr(data-caption);
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 8px;
+            text-align: center;
+            font-size: 0.9em;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+        .gallery-item:hover::after {
+            transform: translateY(0);
+        }
+        .gallery-item img:not([src]), .gallery-item video:not([src]) {
+            background: #e0e0e0;
+            min-height: 200px;
+        }
+        video {
+            outline: none;
+        }
+        /* รองรับหน้าจอขนาดต่างๆ */
+        @media (max-width: 768px) {
+            .gallery {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                gap: 10px;
+            }
+            .gallery-container {
+                padding: 15px;
+            }
+            .section-title {
+                font-size: clamp(1.2em, 3vw, 1.5em);
+            }
+        }
+        @media (max-width: 480px) {
+            .gallery {
+                grid-template-columns: 1fr;
+            }
+            .gallery-item {
+                aspect-ratio: 16 / 9;
+            }
+        }
+        @media (hover: none) {
+            .gallery-item::after {
+                transform: translateY(0);
+                font-size: 0.85em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="gallery-container">
+        <!-- ส่วนวิดีโอ -->
+        <h2 class="section-title">วิดีโอ AI</h2>
+        <div class="gallery">
+            <div class="gallery-item" data-caption="วิดีโอ 01: การสร้างวิดีโอด้วย AI">
+                <video controls>
+                    <source src="videos/01.mp4" type="video/mp4">
+                    วิดีโอไม่สามารถโหลดได้
+                </video>
+            </div>
+            <div class="gallery-item" data-caption="วิดีโอ 02: การสร้างวิดีโอด้วย AI">
+                <video controls>
+                    <source src="videos/02.mp4" type="video/mp4">
+                    วิดีโอไม่สามารถโหลดได้
+                </video>
+            </div>
+            <div class="gallery-item" data-caption="วิดีโอ 03: การสร้างวิดีโอด้วย AI">
+                <video controls>
+                    <source src="videos/03.mp4" type="video/mp4">
+                    วิดีโอไม่สามารถโหลดได้
+                </video>
+            </div>
+            <div class="gallery-item" data-caption="วิดีโอ 04: การสร้างวิดีโอด้วย AI">
+                <video controls>
+                    <source src="videos/04.mp4" type="video/mp4">
+                    วิดีโอไม่สามารถโหลดได้
+                </video>
+            </div>
+            <div class="gallery-item" data-caption="วิดีโอ 05: การสร้างวิดีโอด้วย AI">
+                <video controls>
+                    <source src="videos/05.mp4" type="video/mp4">
+                    วิดีโอไม่สามารถโหลดได้
+                </video>
+            </div>
+            <div class="gallery-item" data-caption="วิดีโอ 06: การสร้างวิดีโอด้วย AI">
+                <video controls>
+                    <source src="videos/06.mp4" type="video/mp4">
+                    วิดีโอไม่สามารถโหลดได้
+                </video>
+            </div>
+            <div class="gallery-item" data-caption="วิดีโอ 07: การสร้างวิดีโอด้วย AI">
+                <video controls>
+                    <source src="videos/07.mp4" type="video/mp4">
+                    วิดีโอไม่สามารถโหลดได้
+                </video>
+            </div>
+            <div class="gallery-item" data-caption="วิดีโอ 08: การสร้างวิดีโอด้วย AI">
+                <video controls>
+                    <source src="videos/08.mp4" type="video/mp4">
+                    วิดีโอไม่สามารถโหลดได้
+                </video>
+            </div>
+            <div class="gallery-item" data-caption="วิดีโอ 09: การสร้างวิดีโอด้วย AI">
+                <video controls>
+                    <source src="videos/09.mp4" type="video/mp4">
+                    วิดีโอไม่สามารถโหลดได้
+                </video>
+            </div>
+            <div class="gallery-item" data-caption="วิดีโอ 10: การสร้างวิดีโอด้วย AI">
+                <video controls>
+                    <source src="videos/10.mp4" type="video/mp4">
+                    วิดีโอไม่สามารถโหลดได้
+                </video>
+            </div>
+            <div class="gallery-item" data-caption="วิดีโอ 11: การสร้างวิดีโอด้วย AI">
+                <video controls>
+                    <source src="videos/11.mp4" type="video/mp4">
+                    วิดีโอไม่สามารถโหลดได้
+                </video>
+            </div>
+        </div>
+
+        <!-- ส่วนภาพ -->
+        <h2 class="section-title">ภาพ AI</h2>
+        <div class="gallery">
+            <div class="gallery-item" data-caption="ภาพ 01: การสร้างภาพด้วย AI">
+                <img src="pics/01.png" alt="ภาพ 01">
+            </div>
+            <div class="gallery-item" data-caption="ภาพ 02: การสร้างภาพด้วย AI">
+                <img src="pics/02.png" alt="ภาพ 02">
+            </div>
+            <div class="gallery-item" data-caption="ภาพ 03: การสร้างภาพด้วย AI">
+                <img src="pics/03.png" alt="ภาพ 03">
+            </div>
+            <div class="gallery-item" data-caption="ภาพ 04: การสร้างภาพด้วย AI">
+                <img src="pics/04.png" alt="ภาพ 04">
+            </div>
+            <div class="gallery-item" data-caption="ภาพ 05: การสร้างภาพด้วย AI">
+                <img src="pics/05.png" alt="ภาพ 05">
+            </div>
+            <div class="gallery-item" data-caption="ภาพ 06: การสร้างภาพด้วย AI">
+                <img src="pics/06.png" alt="ภาพ 06">
+            </div>
+            <div class="gallery-item" data-caption="ภาพ 07: การสร้างภาพด้วย AI">
+                <img src="pics/07.png" alt="ภาพ 07">
+            </div>
+            <div class="gallery-item" data-caption="ภาพ 08: การสร้างภาพด้วย AI">
+                <img src="pics/08.png" alt="ภาพ 08">
+            </div>
+            <div class="gallery-item" data-caption="ภาพ 09: การสร้างภาพด้วย AI">
+                <img src="pics/09.png" alt="ภาพ 09">
+            </div>
+            <div class="gallery-item" data-caption="ภาพ 10: การสร้างภาพด้วย AI">
+                <img src="pics/10.png" alt="ภาพ 10">
+            </div>
+            <div class="gallery-item" data-caption="ภาพ 11: การสร้างภาพด้วย AI">
+                <img src="pics/11.png" alt="ภาพ 11">
+            </div>
+            <div class="gallery-item" data-caption="ภาพ 12: การสร้างภาพด้วย AI">
+                <img src="pics/12.png" alt="ภาพ 12">
+            </div>
+            <div class="gallery-item" data-caption="ภาพ 13: การสร้างภาพด้วย AI">
+                <img src="pics/13.png" alt="ภาพ 13">
+            </div>
+            <div class="gallery-item" data-caption="ภาพ 14: การสร้างภาพด้วย AI">
+                <img src="pics/14.png" alt="ภาพ 14">
+            </div>
+            <div class="gallery-item" data-caption="ภาพ 15: การสร้างภาพด้วย AI">
+                <img src="pics/15.png" alt="ภาพ 15">
+            </div>
+            <div class="gallery-item" data-caption="ภาพ 16: การสร้างภาพด้วย AI">
+                <img src="pics/16.png" alt="ภาพ 16">
+            </div>
+            <div class="gallery-item" data-caption="ภาพ 17: การสร้างภาพด้วย AI">
+                <img src="pics/17.png" alt="ภาพ 17">
+            </div>
+            <div class="gallery-item" data-caption="ภาพ 18: การสร้างภาพด้วย AI">
+                <img src="pics/18.png" alt="ภาพ 18">
+            </div>
+            <div class="gallery-item" data-caption="ภาพ 19: การสร้างภาพด้วย AI">
+                <img src="pics/19.png" alt="ภาพ 19">
+            </div>
+            <div class="gallery-item" data-caption="ภาพ 20: การสร้างภาพด้วย AI">
+                <img src="pics/20.png" alt="ภาพ 20">
+            </div>
+            <div class="gallery-item" data-caption="ภาพ 21: การสร้างภาพด้วย AI">
+                <img src="pics/21.png" alt="ภาพ 21">
+            </div>
+            <div class="gallery-item" data-caption="ภาพ 22: การสร้างภาพด้วย AI">
+                <img src="pics/22.png" alt="ภาพ 22">
+            </div>
+            <div class="gallery-item" data-caption="ภาพ 23: การสร้างภาพด้วย AI">
+                <img src="pics/23.png" alt="ภาพ 23">
+            </div>
+            <div class="gallery-item" data-caption="ภาพ 24: การสร้างภาพด้วย AI">
+                <img src="pics/24.png" alt="ภาพ 24">
+            </div>
+            <div class="gallery-item" data-caption="ภาพ 25: การสร้างภาพด้วย AI">
+                <img src="pics/25.png" alt="ภาพ 25">
+            </div>
+            <div class="gallery-item" data-caption="ภาพ 26: การสร้างภาพด้วย AI">
+                <img src="pics/26.png" alt="ภาพ 26">
+            </div>
+            <div class="gallery-item" data-caption="ภาพ 27: การสร้างภาพด้วย AI">
+                <img src="pics/27.png" alt="ภาพ 27">
+            </div>
+            <div class="gallery-item" data-caption="ภาพ 28: การสร้างภาพด้วย AI">
+                <img src="pics/28.png" alt="ภาพ 28">
+            </div>
+            <div class="gallery-item" data-caption="ภาพ 29: การสร้างภาพด้วย AI">
+                <img src="pics/29.png" alt="ภาพ 29">
+            </div>
+            <div class="gallery-item" data-caption="ภาพ 30: การสร้างภาพด้วย AI">
+                <img src="pics/30.png" alt="ภาพ 30">
+            </div>
+        </div>
+    </div>
+    <script>
+        // จัดการกรณีภาพหรือวิดีโอโหลดไม่สำเร็จ
+        document.querySelectorAll('.gallery-item img').forEach(img => {
+            img.onerror = () => {
+                img.src = 'https://via.placeholder.com/400x300?text=Image+Not+Found';
+                img.alt = 'ภาพไม่สามารถโหลดได้';
+            };
+        });
+        document.querySelectorAll('.gallery-item video').forEach(video => {
+            video.onerror = () => {
+                video.poster = 'https://via.placeholder.com/400x300?text=Video+Not+Found';
+                video.innerHTML = '<p>วิดีโอไม่สามารถโหลดได้</p>';
+            };
+        });
+        // การคลิกเพื่อดูภาพหรือวิดีโอในแท็บใหม่
+        document.querySelectorAll('.gallery-item').forEach(item => {
+            item.addEventListener('click', (e) => {
+                if (e.target.tagName !== 'VIDEO' && !e.target.closest('video')) {
+                    const src = item.querySelector('img')?.src || item.querySelector('video source')?.src;
+                    if (src) window.open(src, '_blank');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
